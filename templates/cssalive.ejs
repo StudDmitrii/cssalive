@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./styles/style.css">
+
+        <link rel="stylesheet" href="./scripts/codemirror/lib/codemirror.css">
+        <link rel="stylesheet" href="./scripts/codemirror/theme/the-matrix.css">
+        <link rel="stylesheet" href="./scripts/codemirror/theme/3024-day.css">
+    </head>
+    <body>
+        <div class="cssalive_grid">
+            <div class="app_nav">
+                <div class="z2 mini_description">_зона навигации</div>
+                <div class="z1 content">
+                    <div class="history"><div class="mini_icon"></div>ИСТОРИЯ</div>
+                    <div class="example"><div class="mini_icon"></div>ПРИМЕРЫ</div>
+                    <div class="instruction"><div class="mini_icon"></div>ИНСТРУКЦИЯ</div>
+                    <div class="theme"><div class="mini_icon"></div>ПАРАМЕТРЫ</div>
+                </div>
+            </div>
+
+
+            <div class="app_container">
+
+                <div class="leftcol">
+                    <div class="main_col">
+                        <div class="z2 mini_description">_зона входного кода</div>
+    
+                        <div class="z2 upload_block">
+                            <p>Введите код вручную</p>
+                            <p>ИЛИ</p>
+                            <form method="post" enctype="multipart/form-data" id="id_form_upload">
+                                <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="100000000" />
+                                <input type="file" id="id_file" name="css_file[]" multiple onchange="loadFile(this)"/><label for="id_file"><div class="open_but">Добавьте Файл</div></label>
+                                <input type="submit" id="sun" name="sub" hidden>
+                            </form>
+                        </div>
+                    
+                        <div class="z1">
+                            <textarea id="code_editor"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="beauty_col">
+                    </div>
+                </div>
+    
+                <div class="middlecol">
+                    <div class="start"></div>
+                    <div class="settings"></div>
+                    <div class="report"></div>
+                </div>
+    
+                <div class="rightcol">
+                    <div class="beauty_col">
+
+                    </div>
+
+                    <div class="main_col">
+                        <div class="z2 mini_description">_зона выходного кода</div>
+
+                        <div class="z2 upload_block">
+                            <p>Здесь будет исправленный CSS код,</p>
+                            <p>когда выполните указания слева и нажмёте CТАРТ</p>
+                        </div>
+
+                        <div class="z1">
+                            <textarea id="code_out"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </body>
+    <script src="./scripts/jquery.js"></script>
+
+    <script src="./scripts/codemirror/lib/codemirror.js"></script>
+    <script src="./scripts/codemirror/mode/css/css.js"></script>
+    <script src="./scripts/codemirror/mode/xml/xml.js"></script>
+    <script src="./scripts/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="./scripts/codemirror/addon/edit/closebrackets.js"></script>
+    <script src="./scripts/codemirror/addon/edit/closetag.js"></script>
+    <script src="./scripts/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="./scripts/codemirror/addon/scroll/scrollpastend.js"></script>
+    <script src="./scripts/code_editor.js"></script>
+
+    <script src="./scripts/btn_controller.js"></script>
+    <script src="./scripts/svg_replacer.js"></script>
+    <script src="./scripts/load_file_controller.js"></script>
+    <script src="./scripts/upload_block_controller.js"></script>
+</html>
