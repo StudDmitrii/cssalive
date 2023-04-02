@@ -429,13 +429,15 @@ a:has(.start_app_but) {
 
 .middlecol {
   display: grid;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   justify-items: center;
   grid-template-rows: 38vh 1fr 1fr 1fr 28vh;
 
   .start {
     grid-row: 2;
+    grid-column: 1;
+    z-index: 1;
     background: $start_icon;
     width: 7vw;
     height: 7vh;
@@ -453,6 +455,8 @@ a:has(.start_app_but) {
 
   .settings {
     grid-row: 3;
+    grid-column: 1;
+    z-index: 1;
     background: $settings_icon;
     width: 6vw;
     height: 6vh;
@@ -470,6 +474,8 @@ a:has(.start_app_but) {
 
   .report {
     grid-row: 4;
+    grid-column: 1;
+    z-index: 1;
     background: $report_icon;
     width: 6vw;
     height: 6vh;
@@ -482,6 +488,61 @@ a:has(.start_app_but) {
       transition: all 0.2s;
       width: 5vw;
       height: 5vh;
+    }
+  }
+
+  .settings_block {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    grid-row: 1/6;
+    grid-column: 1;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: 2vw 1fr 2vw;
+    grid-template-rows: 1fr;
+    align-self: stretch;
+    justify-self: stretch;
+
+    .main_col {
+      background: rgba(37, 56, 54, 0.5);
+    }
+
+    .beauty_col_left {
+      background: linear-gradient(
+          225deg,
+          transparent 50%,
+          RGB(30, 57, 50) 50%,
+          RGB(30, 57, 50) 70%,
+          transparent 70%,
+          transparent 100%
+        ),
+        linear-gradient(
+          135deg,
+          transparent 40%,
+          RGB(30, 57, 50) 40%,
+          RGB(30, 57, 50) 60%,
+          transparent 60%,
+          transparent 100%
+        );
+    }
+
+    .beauty_col_right {
+      background: linear-gradient(
+          -225deg,
+          transparent 50%,
+          RGB(30, 57, 50) 50%,
+          RGB(30, 57, 50) 70%,
+          transparent 70%,
+          transparent 100%
+        ),
+        linear-gradient(
+          -135deg,
+          transparent 40%,
+          RGB(30, 57, 50) 40%,
+          RGB(30, 57, 50) 60%,
+          transparent 60%,
+          transparent 100%
+        );
     }
   }
 }

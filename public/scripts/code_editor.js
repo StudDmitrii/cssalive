@@ -19,10 +19,10 @@ var out = CodeMirror.fromTextArea(document.getElementById('code_out'), {
     lineNumbers: true,
     autoCloseTags: true,
     autoCloseBrackets: true,
-    readOnly: false
+    readOnly: true
 });
 
-function resetTheme (theme_in){
+/*function resetTheme (theme_in){
     let textin = editor.getValue();
     editor = CodeMirror.fromTextArea(document.getElementById('code_editor'), {
         mode: 'css',
@@ -48,4 +48,4 @@ function resetTheme (theme_in){
         readOnly: true
     });
     out.setValue(textout);
-}
+}*/

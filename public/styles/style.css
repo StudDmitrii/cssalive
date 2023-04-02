@@ -2,12 +2,10 @@
   font-family: SR;
   src: url("../fonts/SuboleyaRegular.ttf");
 }
-
 @font-face {
   font-family: W;
   src: url("../fonts/Wadik.otf");
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -64,32 +62,26 @@ a:hover {
   background-color: rgba(55, 104, 101, 0.5);
   grid-area: nav;
 }
-
 .nav .content {
   display: grid;
   grid-template-columns: 8vw auto 10% 10% 10% 10%;
 }
-
 .nav .content div:nth-child(3) {
   background-color: rgba(0, 0, 0, 0.089);
 }
-
 .nav .content div:nth-child(4) {
   background-color: rgba(0, 0, 0, 0.171);
 }
-
 .nav .content .theme_div {
   background-color: rgba(0, 0, 0, 0.267);
   display: grid;
   justify-items: center;
   align-items: center;
 }
-
 .nav .content .theme_div:hover {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
   background: rgba(0, 0, 0, 0);
 }
-
 .nav .content .theme_div .theme_but {
   display: grid;
   justify-content: center;
@@ -102,29 +94,24 @@ a:hover {
   height: 5vw;
   font-size: 1vw;
 }
-
 .nav .content div:nth-child(6) {
   background-color: rgba(0, 0, 0, 0.349);
 }
-
 .nav .content .logo {
   background: url("../imgs/logo.svg") no-repeat;
   background-size: 5vw;
   background-position: center;
 }
-
 .nav .content .fast_desc {
   text-shadow: 3px 3px rgb(16, 0, 19);
   justify-self: start;
   font-size: 40px;
   align-self: center;
 }
-
 .nav .content .fast_desc .matter:nth-child(1) {
   color: rgb(0, 146, 102);
   text-shadow: 0 5px rgb(16, 0, 19);
 }
-
 .nav .content .fast_desc .matter:nth-child(3) {
   color: rgb(55, 148, 125);
   text-shadow: 3px 3px rgb(16, 0, 19);
@@ -155,12 +142,10 @@ a:hover {
   background: linear-gradient(135deg, rgba(38, 73, 70, 0.5) 20%, rgba(41, 77, 74, 0.5) 20%, rgba(41, 77, 74, 0.5) 80%, rgba(38, 73, 70, 0.5) 80%, rgba(38, 73, 70, 0.5) 100%);
   grid-area: version;
 }
-
 .version .content {
   font-family: W;
   display: grid;
 }
-
 .version .content .version_name {
   align-self: end;
   display: grid;
@@ -168,8 +153,7 @@ a:hover {
   font-size: 30px;
   font-family: W;
 }
-
-.version .content .version_name>div:nth-child(1) {
+.version .content .version_name > div:nth-child(1) {
   display: grid;
   justify-content: end;
   color: rgb(139, 135, 70);
@@ -177,8 +161,7 @@ a:hover {
   text-shadow: none;
   font-size: 20px;
 }
-
-.version .content .version_name>div:nth-child(2) {
+.version .content .version_name > div:nth-child(2) {
   display: grid;
   justify-content: center;
   background-color: rgb(139, 135, 70);
@@ -187,38 +170,31 @@ a:hover {
   text-shadow: none;
   font-size: 20px;
 }
-
 .version .content .info {
   display: grid;
 }
-
 .version .content .info .title {
   font-family: SR;
   padding-top: 3%;
   color: rgb(139, 135, 70);
 }
-
 .version .content .info .title .date {
   font-size: 20px;
   text-shadow: none;
   color: rgb(0, 146, 102);
 }
-
 .version .content .info .news_list {
   align-self: start;
   display: grid;
   grid-template-columns: 20% 80%;
 }
-
-.version .content .info .news_list>div:first-child {
+.version .content .info .news_list > div:first-child {
   display: grid;
   justify-content: end;
 }
-
-.version .content .info .news_list>div:first-child .unsel {
+.version .content .info .news_list > div:first-child .unsel {
   font-size: 20px;
 }
-
 .version .content .info .news_list .lined {
   text-align: justify;
   font-family: W;
@@ -226,13 +202,11 @@ a:hover {
   padding: 1%;
   color: rgba(187, 184, 123, 0.5);
 }
-
 .version .content .info .news_list .lined .unsel {
   font-size: 20px;
   font-family: W;
   color: rgb(207, 198, 69);
 }
-
 .version .content .info .news_list .lined .matter {
   font-family: W;
   font-size: 18px;
@@ -290,7 +264,6 @@ a:has(.start_app_but) {
   display: grid;
   user-select: none;
 }
-
 .start_app_but .z0 {
   background-color: rgba(139, 139, 139, 0.021);
   background: linear-gradient(45deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.03) 20%, rgba(0, 0, 0, 0.03) 50%, rgba(0, 0, 0, 0.07) 50%, rgba(0, 0, 0, 0.07) 100%);
@@ -303,18 +276,15 @@ a:has(.start_app_but) {
   justify-self: end;
   font-size: 15vh;
 }
-
 .start_app_but .z1 {
   transition: padding 0.5s;
   font-size: 60px;
 }
-
 .start_app_but .z2 {
   transition: padding 0.5s;
   padding-right: 0;
   color: rgb(207, 198, 69);
 }
-
 .start_app_but span {
   font-size: 60px;
 }
@@ -323,18 +293,15 @@ a:has(.start_app_but) {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
   background-color: rgb(134, 64, 64);
 }
-
 .start_app_but:hover .z0 {
   letter-spacing: 0.6vw;
   transition: padding 1s, letter-spacing 1s;
   padding-right: 10%;
 }
-
 .start_app_but:hover .z1 {
   transition: padding 1s;
   padding-left: 3%;
 }
-
 .start_app_but:hover .z2 {
   transition: padding 1s;
   padding-right: 1vw;
@@ -370,14 +337,15 @@ a:has(.start_app_but) {
 
 .middlecol {
   display: grid;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   justify-items: center;
   grid-template-rows: 38vh 1fr 1fr 1fr 28vh;
 }
-
 .middlecol .start {
   grid-row: 2;
+  grid-column: 1;
+  z-index: 1;
   background: url("../imgs/start_icon.svg");
   width: 7vw;
   height: 7vh;
@@ -385,16 +353,16 @@ a:has(.start_app_but) {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .middlecol .start:hover {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
   transition: all 0.2s;
   width: 6vw;
   height: 6vh;
 }
-
 .middlecol .settings {
   grid-row: 3;
+  grid-column: 1;
+  z-index: 1;
   background: url("../imgs/settings_icon.svg");
   width: 6vw;
   height: 6vh;
@@ -402,16 +370,16 @@ a:has(.start_app_but) {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .middlecol .settings:hover {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
   transition: all 0.2s;
   width: 5vw;
   height: 5vh;
 }
-
 .middlecol .report {
   grid-row: 4;
+  grid-column: 1;
+  z-index: 1;
   background: url("../imgs/report_icon.svg");
   width: 6vw;
   height: 6vh;
@@ -419,12 +387,32 @@ a:has(.start_app_but) {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .middlecol .report:hover {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
   transition: all 0.2s;
   width: 5vw;
   height: 5vh;
+}
+.middlecol .settings_block {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  grid-row: 1/6;
+  grid-column: 1;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 2vw 1fr 2vw;
+  grid-template-rows: 1fr;
+  align-self: stretch;
+  justify-self: stretch;
+}
+.middlecol .settings_block .main_col {
+  background: rgba(37, 56, 54, 0.5);
+}
+.middlecol .settings_block .beauty_col_left {
+  background: linear-gradient(225deg, transparent 50%, RGB(30, 57, 50) 50%, RGB(30, 57, 50) 70%, transparent 70%, transparent 100%), linear-gradient(135deg, transparent 40%, RGB(30, 57, 50) 40%, RGB(30, 57, 50) 60%, transparent 60%, transparent 100%);
+}
+.middlecol .settings_block .beauty_col_right {
+  background: linear-gradient(-225deg, transparent 50%, RGB(30, 57, 50) 50%, RGB(30, 57, 50) 70%, transparent 70%, transparent 100%), linear-gradient(-135deg, transparent 40%, RGB(30, 57, 50) 40%, RGB(30, 57, 50) 60%, transparent 60%, transparent 100%);
 }
 
 .leftcol {
@@ -433,19 +421,16 @@ a:has(.start_app_but) {
   grid-row: 1;
   grid-template-columns: 1fr 2vw;
 }
-
 .leftcol .main_col {
   overflow: hidden;
   display: grid;
   background: linear-gradient(225deg, rgba(37, 56, 54, 0.438) 5%, rgba(37, 56, 54, 0.5) 5%, rgba(37, 56, 54, 0.5) 95%, rgba(37, 56, 54, 0.247) 95%);
 }
-
 .leftcol .main_col div:has(textarea) {
   grid-row: 1/1;
   grid-column: 1/1;
   overflow: hidden;
 }
-
 .leftcol .beauty_col {
   background: linear-gradient(225deg, transparent 3%, rgba(37, 56, 54, 0.438) 3%, rgba(37, 56, 54, 0.438) 20%, transparent 30%, transparent 70%, rgba(52, 117, 85, 0.438) 70%, rgba(37, 56, 54, 0.438) 80%, transparent 90%), linear-gradient(135deg, transparent 10%, rgba(37, 56, 54, 0.438) 20%, rgba(52, 117, 85, 0.438) 40%, transparent 40%, transparent 70%, rgba(37, 56, 54, 0.438) 80%, rgba(37, 56, 54, 0.438) 97%, transparent 97%);
 }
@@ -456,22 +441,18 @@ a:has(.start_app_but) {
   grid-row: 1;
   grid-template-columns: 2vw 1fr;
 }
-
 .rightcol .upload_block p {
   font-size: 22px;
   color: rgba(187, 184, 123, 0.5);
   font-family: SR;
 }
-
 .rightcol div:has(textarea) {
   overflow: hidden;
 }
-
 .rightcol .main_col {
   display: grid;
   background: linear-gradient(135deg, rgba(37, 56, 54, 0.438) 5%, rgba(37, 56, 54, 0.5) 5%, rgba(37, 56, 54, 0.5) 95%, rgba(37, 56, 54, 0.247) 95%);
 }
-
 .rightcol .beauty_col {
   background: linear-gradient(-225deg, transparent 3%, rgba(37, 56, 54, 0.438) 3%, rgba(37, 56, 54, 0.438) 20%, transparent 30%, transparent 70%, rgba(52, 117, 85, 0.438) 70%, rgba(37, 56, 54, 0.438) 80%, transparent 90%), linear-gradient(-135deg, transparent 10%, rgba(37, 56, 54, 0.438) 20%, rgba(52, 117, 85, 0.438) 40%, transparent 40%, transparent 70%, rgba(37, 56, 54, 0.438) 80%, rgba(37, 56, 54, 0.438) 97%, transparent 97%);
 }
@@ -481,11 +462,9 @@ a:has(.start_app_but) {
   justify-self: center;
   align-self: center;
 }
-
 .upload_block input {
   display: none;
 }
-
 .upload_block .open_but {
   text-align: center;
   font-size: 22px;
@@ -495,14 +474,12 @@ a:has(.start_app_but) {
   transition: all 0.2s;
   background: linear-gradient(110deg, rgba(0, 0, 0, 0) 10%, rgb(112, 53, 53) 10%, rgb(112, 53, 53) 20%, rgb(72, 34, 40) 20%, rgb(72, 34, 40) 90%, rgba(0, 0, 0, 0) 90%);
 }
-
 .upload_block .open_but:hover {
   letter-spacing: 0.2vw;
   background: linear-gradient(110deg, rgba(0, 0, 0, 0) 10%, rgb(139, 135, 70) 10%, rgb(139, 135, 70) 20%, rgba(187, 184, 123, 0.5) 20%, rgba(187, 184, 123, 0.5) 90%, rgba(0, 0, 0, 0) 90%);
   transition: all 0.2s;
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
-
 .upload_block p {
   font-family: W;
   margin-top: 3vh;
@@ -519,13 +496,11 @@ a:has(.start_app_but) {
   justify-self: center;
   font-size: 3vh;
 }
-
 .app_nav .content {
   display: grid;
   grid-auto-flow: column;
 }
-
-.app_nav .content>div {
+.app_nav .content > div {
   padding-right: 2vw;
   margin: 0 2vw;
   display: grid;
@@ -533,15 +508,12 @@ a:has(.start_app_but) {
   grid-template-rows: 1fr;
   align-items: center;
 }
-
-.app_nav .content>div:hover {
+.app_nav .content > div:hover {
   background: rgba(0, 0, 0, 0.137);
 }
-
 .app_nav .content .history {
   background: linear-gradient(rgba(233, 245, 64, 0.082), rgba(0, 0, 0, 0) 70%);
 }
-
 .app_nav .content .history .mini_icon {
   background: url("../imgs/history_icon.png");
   width: 4vw;
@@ -550,7 +522,6 @@ a:has(.start_app_but) {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .app_nav .content .example .mini_icon {
   background: url("../imgs/example_icon.png"), url("../imgs/history_icon.png");
   width: 4vw;
@@ -559,7 +530,6 @@ a:has(.start_app_but) {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .app_nav .content .instruction .mini_icon {
   background: url("../imgs/instruction_icon.png");
   width: 4vw;
@@ -568,7 +538,6 @@ a:has(.start_app_but) {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .app_nav .content .theme .mini_icon {
   background: url("../imgs/theme_icon.png");
   width: 4vw;
