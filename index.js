@@ -39,7 +39,8 @@ app.get('/app', (req, res) => {
 });
 
 app.post('/app/result', (req, res) => {
-    sys.startRefactor(req.body.text).then((data) => res.send(data));
+    //console.log("we are");
+    sys.startRefactor(req.body).then((data) => res.send(data));
 });
 
 app.use((req, res) => {

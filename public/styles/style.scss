@@ -447,9 +447,6 @@ a:has(.start_app_but) {
 
     &:hover {
       @include h_cur;
-      transition: all 0.2s;
-      width: 6vw;
-      height: 6vh;
     }
   }
 
@@ -466,9 +463,6 @@ a:has(.start_app_but) {
 
     &:hover {
       @include h_cur;
-      transition: all 0.2s;
-      width: 5vw;
-      height: 5vh;
     }
   }
 
@@ -485,15 +479,12 @@ a:has(.start_app_but) {
 
     &:hover {
       @include h_cur;
-      transition: all 0.2s;
-      width: 5vw;
-      height: 5vh;
     }
   }
 
   .settings_block {
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.5s ease-in;
     grid-row: 1/6;
     grid-column: 1;
     z-index: 0;
@@ -504,7 +495,123 @@ a:has(.start_app_but) {
     justify-self: stretch;
 
     .main_col {
+      display: grid;
+      grid-template-rows: 9% 1fr 6%;
+      overflow-y: auto;
       background: rgba(37, 56, 54, 0.5);
+
+      .title {
+        background: linear-gradient(
+          135deg,
+          rgba(58, 58, 58, 0.479) 70%,
+          rgba(58, 58, 58, 0.26) 70%
+        );
+        font-size: 7vh;
+        overflow: hidden;
+        grid-row: 1;
+        margin-bottom: 1.5vh;
+
+        user-select: none;
+        transition: all 1s;
+        color: $dark-yellow;
+      }
+
+      .content {
+        margin-bottom: 2vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        white-space: nowrap;
+        grid-row: 2;
+        padding: 2vh 2vw;
+        display: grid;
+
+        .global_set {
+          background: rgba(0, 0, 0, 0.096);
+          padding: 20px;
+        }
+
+        .set_title {
+          font-size: 22px;
+          display: grid;
+          justify-content: end;
+        }
+
+        .about {
+          margin-top: 20px;
+          white-space: unset;
+        }
+
+        .radio {
+          display: grid;
+          margin: 1vh 1vw;
+
+          input {
+            display: none;
+
+            &:checked + label {
+              margin-left: 1vw;
+              background: linear-gradient(115deg, transparent 10%, $green 10%);
+              color: $yellow;
+            }
+          }
+
+          label {
+            letter-spacing: 2px;
+            text-shadow: 2px 2px $purple;
+            background: linear-gradient(115deg, transparent 10%, $dark-red 10%);
+            font-family: W;
+            padding: 1vh 1vw;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      .accept_block {
+        transition: opacity 0.2s;
+        opacity: 0;
+        width: 60%;
+        grid-row: 3;
+        display: grid;
+        justify-self: center;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        font-size: 3vh;
+        white-space: nowrap;
+
+        .accept {
+          background: linear-gradient(115deg, transparent 20%, $green 20%);
+          display: grid;
+          justify-content: right;
+          align-content: center;
+          padding: 0 2vw;
+          @include h_cur();
+          transition: transform 0.2s;
+
+          &:hover {
+            transition: transform 0.2s;
+            transform: translate(0, 10%);
+          }
+        }
+
+        .cancel {
+          color: $purple;
+          background: linear-gradient(-115deg, transparent 20%, $red 20%);
+          display: grid;
+          justify-content: left;
+          align-content: center;
+          padding: 0 2vw;
+          @include h_cur();
+          transition: transform 0.2s;
+
+          &:hover {
+            transition: transform 0.2s;
+            transform: translate(0, 10%);
+          }
+        }
+      }
     }
 
     .beauty_col_left {
@@ -548,6 +655,7 @@ a:has(.start_app_but) {
 }
 
 .leftcol {
+  transition: opacity 1s;
   display: grid;
   grid-column: 1;
   grid-row: 1;
@@ -598,6 +706,7 @@ a:has(.start_app_but) {
 }
 
 .rightcol {
+  transition: opacity 1s;
   display: grid;
   grid-column: 3;
   grid-row: 1;
@@ -791,4 +900,8 @@ a:has(.start_app_but) {
       }
     }
   }
+}
+
+label {
+  @include h_cur();
 }

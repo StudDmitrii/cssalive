@@ -1,26 +1,7 @@
-/*var histery_open = false;
+//global
+var settings_data = $('input[name="global_set"]:checked').val();
 
-$('#history_but').on('click', function(){
-    if (!histery_open){
-        $('#uppercol').animate({'grid-template-rows': '30vh'}, 500);
-        histery_open = true;
-    }
-    else{
-        $('#uppercol').animate({'grid-template-rows': '0'}, 500);
-        histery_open = false;
-    }
-});
-
-editor.on('focus', function(){
-    if (histery_open){
-        $('#uppercol').css({'grid-template-rows': '0'});
-        histery_open = false;
-    }
-});
-*/
-
-
-
+//btns
 
 var settings_open = false;
 
@@ -32,28 +13,41 @@ $('.settings').on('click', function(){
         $('.app_container').css('grid-template-columns', '1fr 40vw 1fr');
         $('.start, .report, .settings').css('display', 'none');
 
+        $('.leftcol, .rightcol').css('opacity', '0.5');
         $('.settings_block').css('opacity','1');
 
         setTimeout(function(){
             $('.app_container').css('transition', '');
+            $('.accept_block').css('opacity', '0.8');
             settings_open = true;
         }, 1000);
     }
 });
 
-$('.settings').on('click', function(){
+const closeSettings = () => {
     if (settings_open){
+        $('.accept_block').css('opacity', '0');
 
         $('.app_container').css('transition','grid-template-columns 1s');
-        $('.middlecol').css('justify-content','center');
+        
         $('.app_container').css('grid-template-columns','1fr 2vw 1fr');
-        $('.start, .report, .settings').css('display', 'block');
+        
 
-        setTimeout(function(){
+        $('.leftcol, .rightcol').css('opacity', '1');
+        $('.settings_block').css('opacity','0');
+
+        setTimeout(function () {
+            
             $('.app_container').css('transition', '');
+            $('.middlecol').css('justify-content', 'center');
+            $('.start, .report, .settings').css('display', 'block');
             settings_open = false;
         }, 1000);
     }
+};
+
+$('.settings_block .accept, .settings_block .cancel').on('click', () => {
+    closeSettings();
 });
 
 
@@ -64,18 +58,7 @@ $('.middlecol .start').on('click', function(){
     if (editor.getValue() != "") {
         $('.rightcol .upload_block').fadeOut(100, 'linear');
 
-        /*let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = () => {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                sender(xhttp.responseText);
-            }
-        }
-
-        xhttp.open("GET", "http://localhost:3001/app/result", true);
-        xhttp.send();*/
-        $.post("http://localhost:3001/app/result", { text: editor.getValue() }, function(data) {
-            //alert(data);
-            //console.log(data);
+        $.post("http://localhost:3001/app/result", { text: editor.getValue(), settings: settings_data }, function(data) {
             out.setValue(data);
         });
     }
@@ -85,20 +68,8 @@ $('.middlecol .start').on('click', function(){
 
 
 
-
-
-$('#report_but').on('click', function(){
-    $('.CodeMirror').css('filter','blur(40px)');
-    $('#start_but, #settings_but, .upload_block').css('visibility','hidden');
-    $(this).css('display','none');
-    $('.report').css('display','grid');
-    $('#close_report_but').css('display','block');
+$('.settings_block .accept').on('click', () => {
+    settings_data = $('input[name="global_set"]:checked').val();
 });
 
-$('#close_report_but').on('click', function(){
-    $('.CodeMirror').css('filter','blur(0)');
-    $('#start_but, #settings_but, .upload_block').css('visibility','visible');
-    $(this).css('display','none');
-    $('.report').css('display','none');
-    $('#report_but').css('display','block');
-});
+alert("ss");
