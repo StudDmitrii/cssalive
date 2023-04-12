@@ -519,6 +519,14 @@ a:has(.start_app_but) {
   grid-column: 1/1;
   overflow: hidden;
 }
+.leftcol .main_col .report_block {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.leftcol .main_col .report_block iframe {
+  border: 0.5vh solid rgb(0, 70, 41);
+}
 .leftcol .beauty_col {
   background: linear-gradient(225deg, transparent 3%, rgba(37, 56, 54, 0.438) 3%, rgba(37, 56, 54, 0.438) 20%, transparent 30%, transparent 70%, rgba(52, 117, 85, 0.438) 70%, rgba(37, 56, 54, 0.438) 80%, transparent 90%), linear-gradient(135deg, transparent 10%, rgba(37, 56, 54, 0.438) 20%, rgba(52, 117, 85, 0.438) 40%, transparent 40%, transparent 70%, rgba(37, 56, 54, 0.438) 80%, rgba(37, 56, 54, 0.438) 97%, transparent 97%);
 }

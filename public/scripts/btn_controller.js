@@ -72,4 +72,20 @@ $('.settings_block .accept').on('click', () => {
     settings_data = $('input[name="global_set"]:checked').val();
 });
 
-alert("ss");
+
+
+
+var report_is_open = false;
+
+$('.middlecol .report').on('click', () => {
+
+    if (report_is_open == false) {
+        $('.report_block').css('display', 'block');
+        report_is_open = true;
+    }
+    else {
+        $('.report_block').css('display', 'none');
+        report_is_open = false;
+    }
+    
+});
