@@ -1,7 +1,6 @@
-var theme = 'the-matrix';
+const theme = 'the-matrix';
 
-var editor = CodeMirror.fromTextArea(document.getElementById('code_editor'), {
-    mode: 'css',
+const main_set = {
     theme: theme,
     lineNumbers: true,
     autoCloseTags: true,
@@ -11,6 +10,16 @@ var editor = CodeMirror.fromTextArea(document.getElementById('code_editor'), {
     matchBrackets: true,
     continueComments: true,
     tabSize: 2
+}
+
+var editor = CodeMirror.fromTextArea(document.getElementById('code_editor_css'), {
+    mode: 'css',
+    ...main_set
+});
+
+var editor2 = CodeMirror.fromTextArea(document.getElementById('code_editor_html'), {
+    mode: 'xml',
+    ...main_set
 });
 
 var out = CodeMirror.fromTextArea(document.getElementById('code_out'), {

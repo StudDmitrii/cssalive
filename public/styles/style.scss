@@ -11,6 +11,7 @@ $orange: rgb(255, 136, 0);
 $matter-color: rgba(0, 0, 0, 0.3);
 
 $logo: url("../imgs/logo.svg") no-repeat;
+$html_icon: url("../imgs/html_icon.png");
 $example_icon: url("../imgs/example_icon.png");
 $history_icon: url("../imgs/history_icon.png");
 $instruction_icon: url("../imgs/instruction_icon.png");
@@ -663,7 +664,7 @@ a:has(.start_app_but) {
 
   .main_col {
     overflow: hidden;
-    display: grid;
+    //display: grid;
     background: linear-gradient(
       225deg,
       rgba(37, 56, 54, 0.438) 5%,
@@ -672,10 +673,23 @@ a:has(.start_app_but) {
       rgba(37, 56, 54, 0.247) 95%
     );
 
-    div:has(textarea) {
+    &.css_page {
+      display: grid;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+
+    &.html_page {
+      display: none;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+
+    .code_block {
       grid-row: 1 / 1;
       grid-column: 1 / 1;
       overflow: hidden;
+      display: grid;
     }
 
     .report_block {
@@ -823,31 +837,34 @@ a:has(.start_app_but) {
 }
 
 .app_nav {
-  background: linear-gradient(
+  /*background: linear-gradient(
       225deg,
       rgba(0, 0, 0, 0) 40%,
       rgb(36, 52, 60) 40%,
-      rgb(36, 52, 60) 90%,
-      rgba(0, 0, 0, 0) 90%
+      rgb(36, 52, 60) 80%,
+      rgba(0, 0, 0, 0) 80%
     ),
     linear-gradient(
       135deg,
       rgba(0, 0, 0, 0) 40%,
       rgb(36, 52, 60) 40%,
-      rgb(36, 52, 60) 90%,
-      rgba(0, 0, 0, 0) 90%
-    );
-  margin: 0 3vw;
-  margin-bottom: 2vh;
-  padding: 0 6vw;
+      rgb(36, 52, 60) 80%,
+      rgba(0, 0, 0, 0) 80%
+    );*/
+  //margin: 0 3vw;
+  //margin-bottom: 2vh;
+  //padding: 0 6vw;
   display: grid;
   grid-column: 1/4;
-  justify-self: center;
+  justify-self: stretch; //*
   font-size: 3vh;
 
   .content {
+    margin-top: 2vh;
     display: grid;
     grid-auto-flow: column;
+    //grid-template-columns: 20% repeat(4, 1fr) 20%;
+    grid-template-columns: 10% 90%;
 
     & > div {
       padding-right: 2vw;
@@ -862,7 +879,31 @@ a:has(.start_app_but) {
       }
     }
 
-    .history {
+    .change_code {
+      .css {
+        user-select: none;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        background-color: rgba(37, 56, 54, 0.5);
+        width: 6vw;
+        height: 100%;
+        @include h_cur();
+      }
+
+      .html {
+        user-select: none;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        background-color: rgba(37, 56, 54, 0.3);
+        width: 6vw;
+        height: 100%;
+        @include h_cur();
+      }
+    }
+
+    /*.history {
       background: linear-gradient(
         rgba(233, 245, 64, 0.082),
         rgba(0, 0, 0, 0) 70%
@@ -908,7 +949,7 @@ a:has(.start_app_but) {
         background-repeat: no-repeat;
         background-position: center;
       }
-    }
+    }*/
   }
 }
 

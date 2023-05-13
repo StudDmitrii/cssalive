@@ -511,13 +511,23 @@ a:has(.start_app_but) {
 }
 .leftcol .main_col {
   overflow: hidden;
-  display: grid;
   background: linear-gradient(225deg, rgba(37, 56, 54, 0.438) 5%, rgba(37, 56, 54, 0.5) 5%, rgba(37, 56, 54, 0.5) 95%, rgba(37, 56, 54, 0.247) 95%);
 }
-.leftcol .main_col div:has(textarea) {
+.leftcol .main_col.css_page {
+  display: grid;
+  grid-row: 1/1;
+  grid-column: 1/1;
+}
+.leftcol .main_col.html_page {
+  display: none;
+  grid-row: 1/1;
+  grid-column: 1/1;
+}
+.leftcol .main_col .code_block {
   grid-row: 1/1;
   grid-column: 1/1;
   overflow: hidden;
+  display: grid;
 }
 .leftcol .main_col .report_block {
   display: none;
@@ -584,18 +594,77 @@ a:has(.start_app_but) {
 }
 
 .app_nav {
-  background: linear-gradient(225deg, rgba(0, 0, 0, 0) 40%, rgb(36, 52, 60) 40%, rgb(36, 52, 60) 90%, rgba(0, 0, 0, 0) 90%), linear-gradient(135deg, rgba(0, 0, 0, 0) 40%, rgb(36, 52, 60) 40%, rgb(36, 52, 60) 90%, rgba(0, 0, 0, 0) 90%);
-  margin: 0 3vw;
-  margin-bottom: 2vh;
-  padding: 0 6vw;
+  /*background: linear-gradient(
+      225deg,
+      rgba(0, 0, 0, 0) 40%,
+      rgb(36, 52, 60) 40%,
+      rgb(36, 52, 60) 80%,
+      rgba(0, 0, 0, 0) 80%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0) 40%,
+      rgb(36, 52, 60) 40%,
+      rgb(36, 52, 60) 80%,
+      rgba(0, 0, 0, 0) 80%
+    );*/
   display: grid;
   grid-column: 1/4;
-  justify-self: center;
+  justify-self: stretch;
   font-size: 3vh;
 }
 .app_nav .content {
+  margin-top: 2vh;
   display: grid;
   grid-auto-flow: column;
+  grid-template-columns: 10% 90%;
+  /*.history {
+    background: linear-gradient(
+      rgba(233, 245, 64, 0.082),
+      rgba(0, 0, 0, 0) 70%
+    );
+    .mini_icon {
+      background: $history_icon;
+      width: 4vw;
+      height: 4vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .example {
+    .mini_icon {
+      background: $example_icon, $history_icon;
+      width: 4vw;
+      height: 4vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .instruction {
+    .mini_icon {
+      background: $instruction_icon;
+      width: 4vw;
+      height: 4vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .theme {
+    .mini_icon {
+      background: $theme_icon;
+      width: 4vw;
+      height: 4vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }*/
 }
 .app_nav .content > div {
   padding-right: 2vw;
@@ -608,40 +677,25 @@ a:has(.start_app_but) {
 .app_nav .content > div:hover {
   background: rgba(0, 0, 0, 0.137);
 }
-.app_nav .content .history {
-  background: linear-gradient(rgba(233, 245, 64, 0.082), rgba(0, 0, 0, 0) 70%);
+.app_nav .content .change_code .css {
+  user-select: none;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(37, 56, 54, 0.5);
+  width: 6vw;
+  height: 100%;
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
-.app_nav .content .history .mini_icon {
-  background: url("../imgs/history_icon.png");
-  width: 4vw;
-  height: 4vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.app_nav .content .example .mini_icon {
-  background: url("../imgs/example_icon.png"), url("../imgs/history_icon.png");
-  width: 4vw;
-  height: 4vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.app_nav .content .instruction .mini_icon {
-  background: url("../imgs/instruction_icon.png");
-  width: 4vw;
-  height: 4vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.app_nav .content .theme .mini_icon {
-  background: url("../imgs/theme_icon.png");
-  width: 4vw;
-  height: 4vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.app_nav .content .change_code .html {
+  user-select: none;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(37, 56, 54, 0.3);
+  width: 6vw;
+  height: 100%;
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
 
 label {

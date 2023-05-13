@@ -12,10 +12,12 @@
             <div class="app_nav">
                 <div class="z2 mini_description">_зона навигации</div>
                 <div class="z1 content">
-                    <div class="history"><div class="mini_icon"></div>ИСТОРИЯ</div>
+                    <div class="change_code"><div class="css">CSS</div><div class="html">HTML</div></div>
+
+                    <!--div class="history"><div class="mini_icon"></div>ИСТОРИЯ</div>
                     <div class="example"><div class="mini_icon"></div>ПРИМЕРЫ</div>
                     <div class="instruction"><div class="mini_icon"></div>ИНСТРУКЦИЯ</div>
-                    <div class="theme"><div class="mini_icon"></div>ПАРАМЕТРЫ</div>
+                    <div class="theme"><div class="mini_icon"></div>ПАРАМЕТРЫ</div-->
                 </div>
             </div>
 
@@ -23,21 +25,43 @@
             <div class="app_container">
 
                 <div class="leftcol">
-                    <div class="main_col">
-                        <div class="z2 mini_description">_зона входного кода</div>
+                    <div class="main_col css_page">
+                        <div class="z2 mini_description">_зона ввода CSS</div>
     
                         <div class="z2 upload_block">
-                            <p>Введите код вручную</p>
+                            <p>Введите CSS вручную</p>
                             <p>ИЛИ</p>
-                            <form method="post" enctype="multipart/form-data" id="id_form_upload">
-                                <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="100000000" />
-                                <input type="file" id="id_file" name="css_file[]" multiple onchange="loadFile(this)"/><label for="id_file"><div class="open_but">Добавьте Файл</div></label>
-                                <input type="submit" id="sun" name="sub" hidden>
+                            <form method="post" enctype="multipart/form-data" id="id_form_upload_css">
+                                <input type="hidden" id="MAX_FILE_SIZE_CSS" name="MAX_FILE_SIZE" value="100000000" />
+                                <input type="file" id="id_file_css" name="css_file" onchange="loadFile(this)"/><label for="id_file_css"><div class="open_but">Добавьте Файл</div></label>
+                                <input type="submit" id="sub_css" name="sub_css" hidden>
                             </form>
                         </div>
                     
-                        <div class="z1">
-                            <textarea id="code_editor"></textarea>
+                        <div class="z1 code_block">
+                            <textarea id="code_editor_css"></textarea>
+                        </div>
+
+                        <div class="z1 report_block">
+                            <iframe src="/"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="main_col html_page">
+                        <div class="z2 mini_description">_зона ввода HTML</div>
+    
+                        <div class="z2 upload_block">
+                            <p>Введите HTML вручную</p>
+                            <p>ИЛИ</p>
+                            <form method="post" enctype="multipart/form-data" id="id_form_upload_html">
+                                <input type="hidden" id="MAX_FILE_SIZE_HTML" name="MAX_FILE_SIZE" value="100000000" />
+                                <input type="file" id="id_file_html" name="html_file" onchange="loadFile(this)"/><label for="id_file_html"><div class="open_but">Добавьте Файл</div></label>
+                                <input type="submit" id="sub_html" name="sub" hidden>
+                            </form>
+                        </div>
+                    
+                        <div class="z1 code_block">
+                            <textarea id="code_editor_html"></textarea>
                         </div>
 
                         <div class="z1 report_block">
@@ -102,7 +126,7 @@
                     <div class="beauty_col"></div>
 
                     <div class="main_col">
-                        <div class="z2 mini_description">_зона выходного кода</div>
+                        <div class="z2 mini_description">_зона вывода</div>
 
                         <div class="z2 upload_block">
                             <p>Здесь будет исправленный CSS код,</p>
