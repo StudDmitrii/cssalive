@@ -221,6 +221,10 @@ a:hover {
   color: rgb(207, 198, 69);
 }
 
+.matter2 {
+  color: rgb(139, 135, 70);
+}
+
 .z0 {
   grid-row: 1;
   grid-column: 1;
@@ -346,7 +350,7 @@ a:has(.start_app_but) {
   grid-row: 2;
   grid-column: 1;
   z-index: 1;
-  background: url("../imgs/start_icon.svg");
+  background: url("../imgs/play.png");
   width: 7vw;
   height: 7vh;
   background-size: contain;
@@ -354,13 +358,14 @@ a:has(.start_app_but) {
   background-position: center;
 }
 .middlecol .start:hover {
+  opacity: 0.8;
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
 .middlecol .settings {
   grid-row: 3;
   grid-column: 1;
   z-index: 1;
-  background: url("../imgs/settings_icon.svg");
+  background: url("../imgs/setting.png");
   width: 6vw;
   height: 6vh;
   background-size: contain;
@@ -368,13 +373,14 @@ a:has(.start_app_but) {
   background-position: center;
 }
 .middlecol .settings:hover {
+  opacity: 0.8;
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
 .middlecol .report {
   grid-row: 4;
   grid-column: 1;
   z-index: 1;
-  background: url("../imgs/report_icon.svg");
+  background: url("../imgs/result.png");
   width: 6vw;
   height: 6vh;
   background-size: contain;
@@ -382,6 +388,7 @@ a:has(.start_app_but) {
   background-position: center;
 }
 .middlecol .report:hover {
+  opacity: 0.8;
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
 .middlecol .settings_block {
@@ -519,7 +526,7 @@ a:has(.start_app_but) {
   grid-column: 1/1;
 }
 .leftcol .main_col.html_page {
-  display: none;
+  display: grid;
   grid-row: 1/1;
   grid-column: 1/1;
 }
@@ -565,6 +572,7 @@ a:has(.start_app_but) {
 }
 
 .upload_block {
+  min-width: 20vw;
   font-size: 18px;
   justify-self: center;
   align-self: center;
@@ -614,10 +622,9 @@ a:has(.start_app_but) {
   font-size: 3vh;
 }
 .app_nav .content {
-  margin-top: 2vh;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 5% 12% 1fr 5% 5% 2vw 5% 5% 1fr 5% 12%;
   /*.history {
     background: linear-gradient(
       rgba(233, 245, 64, 0.082),
@@ -667,15 +674,26 @@ a:has(.start_app_but) {
   }*/
 }
 .app_nav .content > div {
-  padding-right: 2vw;
-  margin: 0 2vw;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr;
-  align-items: center;
+  grid-auto-flow: column;
+  align-items: stretch;
 }
-.app_nav .content > div:hover {
-  background: rgba(0, 0, 0, 0.137);
+.app_nav .content .menu {
+  margin: 1.5vh 1.5vw;
+  grid-column: 1;
+  background-image: url("../imgs/menu.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.app_nav .content .menu:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+  opacity: 0.8;
+}
+.app_nav .content .change_code {
+  margin-top: 2vh;
+  grid-column: 2;
 }
 .app_nav .content .change_code .css {
   user-select: none;
@@ -696,6 +714,95 @@ a:has(.start_app_but) {
   width: 6vw;
   height: 100%;
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+}
+.app_nav .content .clear_in {
+  margin: 4vh 1.5vw 1.5vh 1.5vw;
+  grid-column: 4;
+  background-image: url("../imgs/clear.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.app_nav .content .clear_in:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+  opacity: 0.8;
+}
+.app_nav .content .move_in {
+  margin: 2vh 1.5vw 2vh 1.5vw;
+  grid-column: 5;
+  background-image: url("../imgs/right-arrow.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.app_nav .content .move_in:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+  opacity: 0.8;
+}
+.app_nav .content .move_out {
+  scale: -1 1;
+  margin: 2vh 1.5vw 2vh 1.5vw;
+  grid-column: 7;
+  background-image: url("../imgs/right-arrow.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.app_nav .content .move_out:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+  opacity: 0.8;
+}
+.app_nav .content .clear_out {
+  margin: 4vh 1.5vw 1.5vh 1.5vw;
+  grid-column: 8;
+  background-image: url("../imgs/clear.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.app_nav .content .clear_out:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+  opacity: 0.8;
+}
+.app_nav .content .download_out {
+  margin: 1vh 0;
+  grid-column: 11;
+  grid-template-columns: 70% 30%;
+  align-items: stretch;
+  justify-items: stretch;
+}
+.app_nav .content .download_out label {
+  margin-bottom: 0.5vh;
+  align-self: end;
+  font-size: 2vh;
+  grid-column: 1/3;
+}
+.app_nav .content .download_out label:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Arrow.cur"), auto;
+}
+.app_nav .content .download_out input {
+  border: none;
+  background-color: rgba(37, 56, 54, 0.5);
+  color: rgb(207, 198, 69);
+  font-size: 2vh;
+  padding: 0 0.5vw;
+}
+.app_nav .content .download_out input:focus {
+  outline: none;
+}
+.app_nav .content .download_out input::placeholder {
+  color: rgb(139, 135, 70);
+}
+.app_nav .content .download_out .download_but {
+  background-color: rgb(72, 34, 40);
+  background-image: url("../imgs/download.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.app_nav .content .download_out .download_but:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+  opacity: 0.8;
 }
 
 label {

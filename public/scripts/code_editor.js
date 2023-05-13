@@ -1,11 +1,13 @@
 const theme = 'the-matrix';
 
+$('.html_page').css('visibility', 'hidden');
+
+
 const main_set = {
     theme: theme,
     lineNumbers: true,
     autoCloseTags: true,
     autoCloseBrackets: true,
-    autofocus: true,
     spellcheck: true,
     matchBrackets: true,
     continueComments: true,
@@ -14,11 +16,13 @@ const main_set = {
 
 var editor = CodeMirror.fromTextArea(document.getElementById('code_editor_css'), {
     mode: 'css',
+    autofocus: true,
     ...main_set
 });
 
 var editor2 = CodeMirror.fromTextArea(document.getElementById('code_editor_html'), {
     mode: 'xml',
+    autofocus: false,
     ...main_set
 });
 

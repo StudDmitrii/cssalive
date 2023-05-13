@@ -16,9 +16,13 @@ $example_icon: url("../imgs/example_icon.png");
 $history_icon: url("../imgs/history_icon.png");
 $instruction_icon: url("../imgs/instruction_icon.png");
 $theme_icon: url("../imgs/theme_icon.png");
-$settings_icon: url("../imgs/settings_icon.svg");
-$start_icon: url("../imgs/start_icon.svg");
-$report_icon: url("../imgs/report_icon.svg");
+$settings_icon: url("../imgs/setting.png");
+$start_icon: url("../imgs/play.png");
+$report_icon: url("../imgs/result.png");
+$download_icon: url("../imgs/download.png");
+$menu_icon: url("../imgs/menu.png");
+$clear_icon: url("../imgs/clear.png");
+$move_icon: url("../imgs/right-arrow.png");
 
 @mixin cur() {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Arrow.cur"), auto;
@@ -296,6 +300,10 @@ a:hover {
   color: $yellow;
 }
 
+.matter2 {
+  color: $dark-yellow;
+}
+
 @mixin z() {
   grid-row: 1;
   grid-column: 1;
@@ -447,6 +455,7 @@ a:has(.start_app_but) {
     background-position: center;
 
     &:hover {
+      opacity: 0.8;
       @include h_cur;
     }
   }
@@ -463,6 +472,7 @@ a:has(.start_app_but) {
     background-position: center;
 
     &:hover {
+      opacity: 0.8;
       @include h_cur;
     }
   }
@@ -479,6 +489,7 @@ a:has(.start_app_but) {
     background-position: center;
 
     &:hover {
+      opacity: 0.8;
       @include h_cur;
     }
   }
@@ -680,7 +691,7 @@ a:has(.start_app_but) {
     }
 
     &.html_page {
-      display: none;
+      display: grid;
       grid-row: 1 / 1;
       grid-column: 1 / 1;
     }
@@ -788,6 +799,7 @@ a:has(.start_app_but) {
 }
 
 .upload_block {
+  min-width: 20vw;
   font-size: 18px;
   justify-self: center;
   align-self: center;
@@ -860,26 +872,39 @@ a:has(.start_app_but) {
   font-size: 3vh;
 
   .content {
-    margin-top: 2vh;
     display: grid;
     grid-auto-flow: column;
     //grid-template-columns: 20% repeat(4, 1fr) 20%;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 5% 12% 1fr 5% 5% 2vw 5% 5% 1fr 5% 12%; //7 8 11
 
     & > div {
-      padding-right: 2vw;
-      margin: 0 2vw;
+      overflow: hidden;
+      //padding-right: 2vw;
+      //margin: 0 2vw;
       display: grid;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: 1fr;
-      align-items: center;
+      grid-auto-flow: column;
+      //grid-template-columns: auto 1fr;
+      //grid-template-rows: 1fr;
+      align-items: stretch;
+    }
 
+    .menu {
+      margin: 1.5vh 1.5vw;
+      grid-column: 1;
+      background-image: $menu_icon;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
       &:hover {
-        background: rgba(0, 0, 0, 0.137);
+        @include h_cur();
+        opacity: 0.8;
       }
     }
 
     .change_code {
+      margin-top: 2vh;
+      grid-column: 2;
+
       .css {
         user-select: none;
         display: grid;
@@ -900,6 +925,104 @@ a:has(.start_app_but) {
         width: 6vw;
         height: 100%;
         @include h_cur();
+      }
+    }
+
+    .clear_in {
+      margin: 4vh 1.5vw 1.5vh 1.5vw;
+      grid-column: 4;
+      background-image: $clear_icon;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      &:hover {
+        @include h_cur();
+        opacity: 0.8;
+      }
+    }
+
+    .move_in {
+      margin: 2vh 1.5vw 2vh 1.5vw;
+      grid-column: 5;
+      background-image: $move_icon;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      &:hover {
+        @include h_cur();
+        opacity: 0.8;
+      }
+    }
+
+    .move_out {
+      scale: -1 1;
+      margin: 2vh 1.5vw 2vh 1.5vw;
+      grid-column: 7;
+      background-image: $move_icon;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      &:hover {
+        @include h_cur();
+        opacity: 0.8;
+      }
+    }
+
+    .clear_out {
+      margin: 4vh 1.5vw 1.5vh 1.5vw;
+      grid-column: 8;
+      background-image: $clear_icon;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      &:hover {
+        @include h_cur();
+        opacity: 0.8;
+      }
+    }
+
+    .download_out {
+      margin: 1vh 0;
+      grid-column: 11;
+      grid-template-columns: 70% 30%;
+      //grid-template-rows: auto 1fr;
+      align-items: stretch;
+      justify-items: stretch;
+
+      label {
+        margin-bottom: 0.5vh;
+        align-self: end;
+        font-size: 2vh;
+        grid-column: 1 / 3;
+        &:hover {
+          @include cur();
+        }
+      }
+
+      input {
+        border: none;
+        background-color: rgba(37, 56, 54, 0.5);
+        color: $yellow;
+        font-size: 2vh;
+        padding: 0 0.5vw;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $dark-yellow;
+        }
+      }
+
+      .download_but {
+        background-color: $dark-red;
+        background-image: $download_icon;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        &:hover {
+          @include h_cur();
+          opacity: 0.8;
+        }
       }
     }
 

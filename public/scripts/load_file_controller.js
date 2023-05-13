@@ -14,7 +14,7 @@ function loadFile(input) {
     };
 
     fileReader.onerror = function () {
-        send("ОШИБКА ЗАГРУЗКИ ФАЙЛА! ПОПРОБУЙТЕ ЕЩЁ РАЗ ИЛИ ПРОВЕРЬТЕ РАСШИРЕНИЕ ФАЙЛА - ОНО ДОЛЖНО СООТВЕТСТВОВАТЬ CSS ИЛИ HTML!");
+        send("ОШИБКА ЗАГРУЗКИ ФАЙЛА!");
     };
 
     function send(msg) {

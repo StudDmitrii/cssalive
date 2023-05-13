@@ -10,9 +10,27 @@
     <body>
         <div class="cssalive_grid">
             <div class="app_nav">
-                <div class="z2 mini_description">_зона навигации</div>
+                <div class="z2 mini_description"></div>
                 <div class="z1 content">
-                    <div class="change_code"><div class="css">CSS</div><div class="html">HTML</div></div>
+
+                    <div class="menu"></div>
+
+                    <div class="change_code">
+                        <div class="css">CSS</div>
+                        <div class="html">HTML</div>
+                    </div>
+
+                    <div class="clear_in"></div>
+                    <div class="move_in"></div>
+
+                    <div class="move_out"></div>
+                    <div class="clear_out"></div>
+
+                    <div class="download_out">
+                        <!--label for="id_out_file_name">имя файла</label-->
+                        <input name="out_file_name" id="id_out_file_name" placeholder="style.css">
+                        <div class="download_but"></div>
+                    </div>
 
                     <!--div class="history"><div class="mini_icon"></div>ИСТОРИЯ</div>
                     <div class="example"><div class="mini_icon"></div>ПРИМЕРЫ</div>
@@ -29,7 +47,7 @@
                         <div class="z2 mini_description">_зона ввода CSS</div>
     
                         <div class="z2 upload_block">
-                            <p>Введите CSS вручную</p>
+                            <p>Введите <span class="matter2">CSS</span></p>
                             <p>ИЛИ</p>
                             <form method="post" enctype="multipart/form-data" id="id_form_upload_css">
                                 <input type="hidden" id="MAX_FILE_SIZE_CSS" name="MAX_FILE_SIZE" value="100000000" />
@@ -51,7 +69,7 @@
                         <div class="z2 mini_description">_зона ввода HTML</div>
     
                         <div class="z2 upload_block">
-                            <p>Введите HTML вручную</p>
+                            <p>Введите <span class="matter2">HTML</span></p>
                             <p>ИЛИ</p>
                             <form method="post" enctype="multipart/form-data" id="id_form_upload_html">
                                 <input type="hidden" id="MAX_FILE_SIZE_HTML" name="MAX_FILE_SIZE" value="100000000" />
@@ -142,6 +160,8 @@
         </div>
     </body>
     <script src="./scripts/jquery.js"></script>
+
+    <script src="./scripts/FileSaver.js"></script>
 
     <script src="./scripts/codemirror/lib/codemirror.js"></script>
     <script src="./scripts/codemirror/mode/css/css.js"></script>
