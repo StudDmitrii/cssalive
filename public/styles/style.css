@@ -339,6 +339,10 @@ a:has(.start_app_but) {
   grid-template-rows: 100%;
 }
 
+div:has(textarea) {
+  font-size: 22px;
+}
+
 .middlecol {
   display: grid;
   align-items: center;
@@ -351,7 +355,7 @@ a:has(.start_app_but) {
   grid-column: 1;
   z-index: 1;
   background: url("../imgs/play.png");
-  width: 7vw;
+  width: 5vw;
   height: 7vh;
   background-size: contain;
   background-repeat: no-repeat;
@@ -366,7 +370,7 @@ a:has(.start_app_but) {
   grid-column: 1;
   z-index: 1;
   background: url("../imgs/setting.png");
-  width: 6vw;
+  width: 4vw;
   height: 6vh;
   background-size: contain;
   background-repeat: no-repeat;
@@ -381,7 +385,7 @@ a:has(.start_app_but) {
   grid-column: 1;
   z-index: 1;
   background: url("../imgs/result.png");
-  width: 6vw;
+  width: 4vw;
   height: 6vh;
   background-size: contain;
   background-repeat: no-repeat;
@@ -420,6 +424,7 @@ a:has(.start_app_but) {
   color: rgb(139, 135, 70);
 }
 .middlecol .settings_block .main_col .content {
+  font-size: 1.5vh;
   margin-bottom: 2vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -427,18 +432,19 @@ a:has(.start_app_but) {
   grid-row: 2;
   padding: 2vh 2vw;
   display: grid;
+  justify-items: stretch;
 }
 .middlecol .settings_block .main_col .content .global_set {
   background: rgba(0, 0, 0, 0.096);
-  padding: 20px;
+  padding: 1vh 2vw;
 }
 .middlecol .settings_block .main_col .content .set_title {
-  font-size: 22px;
+  font-size: 2vh;
   display: grid;
   justify-content: end;
 }
 .middlecol .settings_block .main_col .content .about {
-  margin-top: 20px;
+  margin-top: 2vh;
   white-space: unset;
 }
 .middlecol .settings_block .main_col .content .radio {
@@ -449,14 +455,13 @@ a:has(.start_app_but) {
   display: none;
 }
 .middlecol .settings_block .main_col .content .radio input:checked + label {
-  margin-left: 1vw;
-  background: linear-gradient(115deg, transparent 10%, rgb(0, 70, 41) 10%);
+  background: linear-gradient(90deg, rgb(112, 53, 53) 90%, rgb(112, 53, 53) 90%);
   color: rgb(207, 198, 69);
 }
 .middlecol .settings_block .main_col .content .radio label {
-  letter-spacing: 2px;
-  text-shadow: 2px 2px rgb(16, 0, 19);
-  background: linear-gradient(115deg, transparent 10%, rgb(72, 34, 40) 10%);
+  letter-spacing: 0.1vw;
+  text-shadow: 0.2vw 0.3vh rgb(16, 0, 19);
+  background: linear-gradient(90deg, rgb(72, 34, 40) 95%, rgb(112, 53, 53) 95%);
   font-family: W;
   padding: 1vh 1vw;
 }
@@ -530,19 +535,18 @@ a:has(.start_app_but) {
   grid-row: 1/1;
   grid-column: 1/1;
 }
+.leftcol .main_col.report_page {
+  display: none;
+  align-self: stretch;
+  justify-self: stretch;
+  grid-row: 1/1;
+  grid-column: 1/1;
+}
 .leftcol .main_col .code_block {
   grid-row: 1/1;
   grid-column: 1/1;
   overflow: hidden;
   display: grid;
-}
-.leftcol .main_col .report_block {
-  display: none;
-  width: 100%;
-  height: 100%;
-}
-.leftcol .main_col .report_block iframe {
-  border: 0.5vh solid rgb(0, 70, 41);
 }
 .leftcol .beauty_col {
   background: linear-gradient(225deg, transparent 3%, rgba(37, 56, 54, 0.438) 3%, rgba(37, 56, 54, 0.438) 20%, transparent 30%, transparent 70%, rgba(52, 117, 85, 0.438) 70%, rgba(37, 56, 54, 0.438) 80%, transparent 90%), linear-gradient(135deg, transparent 10%, rgba(37, 56, 54, 0.438) 20%, rgba(52, 117, 85, 0.438) 40%, transparent 40%, transparent 70%, rgba(37, 56, 54, 0.438) 80%, rgba(37, 56, 54, 0.438) 97%, transparent 97%);
@@ -567,6 +571,13 @@ a:has(.start_app_but) {
   display: grid;
   background: linear-gradient(135deg, rgba(37, 56, 54, 0.438) 5%, rgba(37, 56, 54, 0.5) 5%, rgba(37, 56, 54, 0.5) 95%, rgba(37, 56, 54, 0.247) 95%);
 }
+.rightcol .main_col.report_page {
+  display: none;
+  align-self: stretch;
+  justify-self: stretch;
+  grid-row: 1/1;
+  grid-column: 2/2;
+}
 .rightcol .beauty_col {
   background: linear-gradient(-225deg, transparent 3%, rgba(37, 56, 54, 0.438) 3%, rgba(37, 56, 54, 0.438) 20%, transparent 30%, transparent 70%, rgba(52, 117, 85, 0.438) 70%, rgba(37, 56, 54, 0.438) 80%, transparent 90%), linear-gradient(-135deg, transparent 10%, rgba(37, 56, 54, 0.438) 20%, rgba(52, 117, 85, 0.438) 40%, transparent 40%, transparent 70%, rgba(37, 56, 54, 0.438) 80%, rgba(37, 56, 54, 0.438) 97%, transparent 97%);
 }
@@ -583,15 +594,15 @@ a:has(.start_app_but) {
 .upload_block .open_but {
   text-align: center;
   font-size: 22px;
-  margin: 5vh 0;
+  margin: 2vh 3vw;
   padding: 20px;
   text-shadow: 3px 3px rgb(16, 0, 19);
   transition: all 0.2s;
-  background: linear-gradient(110deg, rgba(0, 0, 0, 0) 10%, rgb(112, 53, 53) 10%, rgb(112, 53, 53) 20%, rgb(72, 34, 40) 20%, rgb(72, 34, 40) 90%, rgba(0, 0, 0, 0) 90%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 10%, rgb(112, 53, 53) 10%, rgb(112, 53, 53) 20%, rgb(72, 34, 40) 20%, rgb(72, 34, 40) 90%, rgba(0, 0, 0, 0) 90%);
 }
 .upload_block .open_but:hover {
   letter-spacing: 0.2vw;
-  background: linear-gradient(110deg, rgba(0, 0, 0, 0) 10%, rgb(139, 135, 70) 10%, rgb(139, 135, 70) 20%, rgba(187, 184, 123, 0.5) 20%, rgba(187, 184, 123, 0.5) 90%, rgba(0, 0, 0, 0) 90%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 10%, rgb(139, 135, 70) 10%, rgb(139, 135, 70) 20%, rgba(187, 184, 123, 0.5) 20%, rgba(187, 184, 123, 0.5) 90%, rgba(0, 0, 0, 0) 90%);
   transition: all 0.2s;
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
@@ -620,11 +631,12 @@ a:has(.start_app_but) {
   grid-column: 1/4;
   justify-self: stretch;
   font-size: 3vh;
+  transition: opacity 1s;
 }
 .app_nav .content {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 5% 12% 1fr 5% 5% 2vw 5% 5% 1fr 5% 12%;
+  grid-template-columns: 5% 12% 1fr 5% 7% 5vw 7% 5% 1fr 5% 12%;
   /*.history {
     background: linear-gradient(
       rgba(233, 245, 64, 0.082),
@@ -716,9 +728,9 @@ a:has(.start_app_but) {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
 }
 .app_nav .content .clear_in {
-  margin: 4vh 1.5vw 1.5vh 1.5vw;
+  margin: 2vh 1.5vw 1.5vh 1.5vw;
   grid-column: 4;
-  background-image: url("../imgs/clear.png");
+  background-image: url("../imgs/clear2.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -730,7 +742,7 @@ a:has(.start_app_but) {
 .app_nav .content .move_in {
   margin: 2vh 1.5vw 2vh 1.5vw;
   grid-column: 5;
-  background-image: url("../imgs/right-arrow.png");
+  background-image: url("../imgs/right-arrow2.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -743,7 +755,7 @@ a:has(.start_app_but) {
   scale: -1 1;
   margin: 2vh 1.5vw 2vh 1.5vw;
   grid-column: 7;
-  background-image: url("../imgs/right-arrow.png");
+  background-image: url("../imgs/right-arrow2.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -753,9 +765,9 @@ a:has(.start_app_but) {
   opacity: 0.8;
 }
 .app_nav .content .clear_out {
-  margin: 4vh 1.5vw 1.5vh 1.5vw;
+  margin: 2vh 1.5vw 1.5vh 1.5vw;
   grid-column: 8;
-  background-image: url("../imgs/clear.png");
+  background-image: url("../imgs/clear2.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -807,6 +819,11 @@ a:has(.start_app_but) {
 
 label {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+}
+
+.error_val {
+  text-decoration: underline;
+  text-decoration-color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

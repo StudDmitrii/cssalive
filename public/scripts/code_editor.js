@@ -11,18 +11,21 @@ const main_set = {
     spellcheck: true,
     matchBrackets: true,
     continueComments: true,
-    tabSize: 2
+    tabSize: 2,
+    scrollPastEnd: true,
 }
 
 var editor = CodeMirror.fromTextArea(document.getElementById('code_editor_css'), {
     mode: 'css',
     autofocus: true,
+    allowDropFileTypes: ['css'],
     ...main_set
 });
 
 var editor2 = CodeMirror.fromTextArea(document.getElementById('code_editor_html'), {
     mode: 'xml',
     autofocus: false,
+    allowDropFileTypes: ['html'],
     ...main_set
 });
 
@@ -32,33 +35,42 @@ var out = CodeMirror.fromTextArea(document.getElementById('code_out'), {
     lineNumbers: true,
     autoCloseTags: true,
     autoCloseBrackets: true,
-    readOnly: true
+    readOnly: true,
+    scrollPastEnd: true,
 });
 
-/*function resetTheme (theme_in){
-    let textin = editor.getValue();
-    editor = CodeMirror.fromTextArea(document.getElementById('code_editor'), {
-        mode: 'css',
-        theme: theme_in,
-        lineNumbers: true,
-        autoCloseTags: true,
-        autoCloseBrackets: true,
-        autofocus: true,
-        spellcheck: true,
-        matchBrackets: true,
-        continueComments: true,
-        tabSize: 2
-    });
-    editor.setValue(textin);
+editor.on('change', validateCSS);
+// editor.on('change', hintCSS);
 
-    let textout = out.getValue();
-    out = CodeMirror.fromTextArea(document.getElementById('code_out'), {
-        mode: 'css',
-        theme: theme_in,
-        lineNumbers: true,
-        autoCloseTags: true,
-        autoCloseBrackets: true,
-        readOnly: true
-    });
-    out.setValue(textout);
-}*/
+// function hintCSS() {
+//     CodeMirror.showHint();
+// };
+
+function validateCSS() {
+    let marks = editor.getAllMarks().forEach(i => i.clear());
+    let valid = csstreeValidator.validate(editor.getValue());
+    if (valid == 0) return true;
+    for (let err of valid) {
+        let l = err.line - 1;
+        let ch = err.column - 1;
+        //console.log(l);
+        //console.log(ch);
+        try {
+            let end_ch;
+            if (err.property !== undefined) end_ch = ch + err.property.length;
+            else if (err.css !== undefined) end_ch = ch + err.css.length;
+
+            //console.log(end_ch);
+            editor.markText(
+                { line: l, ch: ch },
+                { line: l, ch: end_ch },
+                {
+                    className: 'error_val',
+                });
+        }
+        catch (e) {
+            console.log("SyntaxError");
+        }
+    }
+    return false;
+};

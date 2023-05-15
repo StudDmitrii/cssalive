@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="./scripts/codemirror/lib/codemirror.css">
         <link rel="stylesheet" href="./scripts/codemirror/theme/the-matrix.css">
         <link rel="stylesheet" href="./scripts/codemirror/theme/3024-day.css">
+        <link rel="stylesheet" href="./scripts/codemirror/addon/hint/show-hint.css">
     </head>
     <body>
         <div class="cssalive_grid">
@@ -59,10 +60,6 @@
                         <div class="z1 code_block">
                             <textarea id="code_editor_css"></textarea>
                         </div>
-
-                        <div class="z1 report_block">
-                            <iframe src="/"></iframe>
-                        </div>
                     </div>
 
                     <div class="main_col html_page">
@@ -81,11 +78,9 @@
                         <div class="z1 code_block">
                             <textarea id="code_editor_html"></textarea>
                         </div>
-
-                        <div class="z1 report_block">
-                            <iframe src="/"></iframe>
-                        </div>
                     </div>
+
+                    <div class="main_col report_page"></div>
 
                     <div class="beauty_col"></div>
                 </div>
@@ -119,10 +114,10 @@
                                             <input type="radio" id="set_minify" name="global_set" value="set_minify"/>
                                             <label for="set_minify">Улучшить скорость загрузки</label>
                                         </div>
-                                        <div class="radio">
+                                        <!--div class="radio">
                                             <input type="radio" id="set_other" name="global_set" value="set_other"/>
                                             <label for="set_other">Другое</label>
-                                        </div>
+                                        </div-->
                                         <div class="about">
                                             
                                         </div>
@@ -155,6 +150,8 @@
                             <textarea id="code_out"></textarea>
                         </div>
                     </div>
+
+                    <div class="main_col report_page"></div>
                 </div>
             </div> 
         </div>
@@ -162,6 +159,7 @@
     <script src="./scripts/jquery.js"></script>
 
     <script src="./scripts/FileSaver.js"></script>
+    <script src="./scripts/csstree-validator.js"></script>
 
     <script src="./scripts/codemirror/lib/codemirror.js"></script>
     <script src="./scripts/codemirror/mode/css/css.js"></script>
@@ -171,6 +169,8 @@
     <script src="./scripts/codemirror/addon/edit/closetag.js"></script>
     <script src="./scripts/codemirror/addon/comment/continuecomment.js"></script>
     <script src="./scripts/codemirror/addon/scroll/scrollpastend.js"></script>
+    <!--script src="./scripts/codemirror/addon/hint/show-hint.js"></script>
+    <script src="./scripts/codemirror/addon/hint/css-hint.js"></script-->
     <script src="./scripts/code_editor.js"></script>
 
     <script src="./scripts/btn_controller.js"></script>
