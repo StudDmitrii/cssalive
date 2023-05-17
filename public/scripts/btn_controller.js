@@ -1,14 +1,69 @@
 //global
-var settings_data = $('input[name="global_set"]:checked').val();
 
+var start_settings_state = getSettings();
+var current_settings_state = start_settings_state;
+var config = makeConfig(start_settings_state)
+//console.log(start_settings_state);
 
+function makeConfig(settings) {
+    let c = config_template;
+    for (let set in c) {
+        if (settings[set] !== undefined)
+            c[set] = settings[set];
+    }
+    return JSON.stringify(c);
+}
+
+function getSettings() {
+    let settings = {
+        "always-semicolon": $('#id_always-semicolon').prop('checked'),
+        "block-indent": $('#id_block-indent').val(),
+        "color-case": $('#id_color-case').prop('checked'),
+        "color-shorthand": $('#id_color-shorthand').prop('checked'),
+        "element-case": $('#id_element-case').prop('checked'),
+        "eof-newline": $('#id_eof-newline').prop('checked'),
+        "leading-zero": $('#id_leading-zero').prop('checked'),
+        "quotes": $('#id_quotes').prop('checked'),
+        "remove-empty-rulesets": $('#id_remove-empty-rulesets').prop('checked'),
+        "strip-spaces": $('#id_strip-spaces').prop('checked'),
+        "unitless-zero": $('#id_unitless-zero').prop('checked'),
+        "vendor-prefix-align": $('#id_vendor-prefix-align').prop('checked'),
+    };
+    for (let element in settings) {
+        if (settings[element] == 'checked') settings[element] = true;
+        if (settings[element] == undefined || settings[element] == 'off') settings[element] = false;
+    }
+    if (settings['color-case'] == true) settings['color-case'] = 'lower';
+    else settings['color-case'] = 'upper';
+    if (settings['element-case'] == true) settings['element-case'] = 'lower';
+    else settings['element-case'] = 'upper';
+    if (settings['quotes'] == true) settings['quotes'] = 'single';
+    else settings['quotes'] = 'double';
+    if (settings['block-indent'].match(/[0-9]/) == null) {
+        settings['block-indent'] = '2';
+        $('#id_block-indent').val(settings['block-indent']);
+    }
+    return settings;
+}
+
+function setSettings(settings) {
+    for (let element in settings) {
+        if (settings[element] == true) $('#id_' + element).prop('checked', true);
+        if (settings[element] == false) $('#id_' + element).prop('checked', false);
+        if (settings[element] == 'lower') $('#id_' + element).prop('checked', true);
+        if (settings[element] == 'upper') $('#id_' + element).prop('checked', false);
+        if (settings[element] == 'single') $('#id_' + element).prop('checked', true);
+        if (settings[element] == 'double') $('#id_' + element).prop('checked', false);
+        if (element == 'block-indent') $('#id_' + element).val(settings[element]);
+    }
+}
 
 var settings_open = false;
 
 $('.settings').on('click', function () {
     if (!settings_open) {
 
-        $('.app_container').css('transition', 'grid-template-columns 1s');
+        $('.app_container').css('transition', 'grid-template-columns 0.5s');
         $('.middlecol').css('justify-content', 'stretch');
         $('.app_container').css('grid-template-columns', '1fr 40vw 1fr');
         $('.start, .report, .settings').css('display', 'none');
@@ -18,9 +73,9 @@ $('.settings').on('click', function () {
 
         setTimeout(function () {
             $('.app_container').css('transition', '');
-            $('.accept_block').css('opacity', '0.8');
+            $('.accept_block').css('opacity', '1');
             settings_open = true;
-        }, 1000);
+        }, 500);
     }
 });
 
@@ -29,7 +84,7 @@ function closeSettings() {
     if (settings_open) {
         $('.accept_block').css('opacity', '0');
 
-        $('.app_container').css('transition', 'grid-template-columns 1s');
+        $('.app_container').css('transition', 'grid-template-columns 0.5s');
 
         $('.app_container').css('grid-template-columns', '1fr 2vw 1fr');
 
@@ -43,12 +98,20 @@ function closeSettings() {
             $('.middlecol').css('justify-content', 'center');
             $('.start, .report, .settings').css('display', 'block');
             settings_open = false;
-        }, 1000);
+        }, 500);
     }
 };
-$('.settings_block .accept, .settings_block .cancel').on('click', () => closeSettings());
+$('.leftcol, .rightcol, .app_nav').on('click', () => {
+    closeSettings();
+});
+$('.settings_block .cancel').on('click', () => {
+    setSettings(current_settings_state);
+    closeSettings();
+});
 $('.settings_block .accept').on('click', () => {
-    settings_data = $('input[name="global_set"]:checked').val();
+    current_settings_state = getSettings();
+    config = makeConfig(current_settings_state);
+    closeSettings();
 });
 
 
@@ -58,9 +121,28 @@ $('.middlecol .start').on('click', function () {
     if (editor.getValue() != "" && validateCSS() == true) {
         $('.rightcol .upload_block').fadeOut(100, 'linear');
 
-        $.post("http://localhost:3001/app/result", { text: editor.getValue(), settings: settings_data }, function (data) {
+        $.post("http://localhost:3001/app/result", { text: editor.getValue(), config: config }, (data) => {
+
             out.setValue(data);
+
+            $('.rightcol .main_col').css('transition', 'none');
+            $('.rightcol .main_col').css('background-color', 'rgba(0,80,0,0.2)');
+            setTimeout(() => {
+                $('.rightcol .main_col').css('transition', 'background-color 0.3s ease-in');
+                $('.rightcol .main_col').css('background-color', 'transparent');
+            }, 200);
         });
+
+
+    }
+    else {
+        $('.css').click();
+        $('.leftcol .main_col').css('transition', 'none');
+        $('.leftcol .main_col').css('background-color', 'rgba(255,0,0,0.2)');
+        setTimeout(() => {
+            $('.leftcol .main_col').css('transition', 'background-color 0.3s ease-in');
+            $('.leftcol .main_col').css('background-color', 'transparent');
+        }, 200);
     }
 });
 
@@ -147,16 +229,19 @@ let report_is_open = false;
 
 $('.report').on('click', () => {
     if (report_is_open == false) {
+        $('.start, .settings').css('display', 'none');
         $('.main_col').css('display', 'none');
         $('.main_col.report_page').css('display', 'grid');
         //$('.cssalive_grid').css('grid-template-rows', '0 100vh');
         $('.app_nav').animate({ opacity: '0' }, 0, () => {
             $('.app_nav').css('display', 'none');
         });
+        startPreview();
 
         report_is_open = true;
     }
     else {
+        $('.start, .settings').css('display', 'unset');
         $('.main_col').css('display', 'grid');
         $('.html').click();
         $('.css').click();
@@ -167,3 +252,13 @@ $('.report').on('click', () => {
         report_is_open = false;
     }
 });
+
+function startPreview() {
+    // let css_in = editor.getValue();
+    // let html_in = editor2.getValue();
+    // let css_out = out.getValue();
+
+    // console.log(html_in + '\n<style>' + css_in + '</style>');
+    // $('.leftcol .preview iframe').html('<h1>GHBDDDD</h1>');
+    // $('.rightcol .preview iframe').html(html_in + '\n<style>' + css_out + '</style>');
+};

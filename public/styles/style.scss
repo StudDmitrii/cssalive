@@ -512,7 +512,7 @@ div:has(textarea) {
 
     .main_col {
       display: grid;
-      grid-template-rows: 9% 1fr 6%;
+      grid-template-rows: 9% 1fr 9%;
       overflow-y: auto;
       background: rgba(37, 56, 54, 0.5);
 
@@ -534,7 +534,7 @@ div:has(textarea) {
 
       .content {
         font-size: 1.5vh;
-        margin-bottom: 2vh;
+        margin-bottom: 1vh;
         overflow-y: auto;
         overflow-x: hidden;
         white-space: nowrap;
@@ -543,9 +543,20 @@ div:has(textarea) {
         display: grid;
         justify-items: stretch;
 
+        // &::-webkit-scrollbar {
+        //   //width: 0;
+        // }
+
         .global_set {
           background: rgba(0, 0, 0, 0.096);
-          padding: 1vh 2vw;
+          padding: 2vh 2vw;
+          //font-size: 1.8vh;
+        }
+
+        .csscomb_set {
+          background: rgba(0, 0, 0, 0.096);
+          margin: 2vh 0;
+          padding: 2vh 0;
         }
 
         .set_title {
@@ -557,6 +568,35 @@ div:has(textarea) {
         .about {
           margin-top: 2vh;
           white-space: unset;
+        }
+
+        .inner {
+          display: grid;
+          grid-template-columns: 1fr 20%;
+          margin: 1vh 1vw;
+
+          input {
+            opacity: 0.8;
+            font-size: 2vh;
+            color: $yellow;
+            border: none;
+            text-align: center;
+            background: $dark-dark-yellow;
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          label {
+            color: $yellow;
+            font-size: 2vh;
+            letter-spacing: 0.1vw;
+            text-shadow: 0 0 0.2vw $purple;
+            background: $dark-dark-yellow;
+            font-family: SR;
+            padding: 2vh 1vw;
+          }
         }
 
         .radio {
@@ -578,31 +618,79 @@ div:has(textarea) {
             text-shadow: 0.2vw 0.3vh $purple;
             background: linear-gradient(90deg, $dark-red 95%, $red 95%);
             font-family: W;
-            padding: 1vh 1vw;
+            padding: 2vh 1vw;
 
             &:hover {
               opacity: 0.8;
             }
           }
         }
+
+        .check {
+          display: grid;
+          //float: left;
+          margin: 3vh 1vw;
+
+          input {
+            display: none;
+
+            &:checked + label {
+              // margin-left: 1vw;
+              background: $green;
+              color: $yellow;
+            }
+
+            &:checked + label::after {
+              margin-left: 1vw;
+              content: "ON";
+              background-color: $green;
+            }
+          }
+
+          label {
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 80% 20%;
+            align-content: stretch;
+            //border-radius: 1.5vh 1.5vw;
+            color: $yellow;
+            letter-spacing: 0.1vw;
+            text-shadow: 0 0 0.2vw $purple;
+            background: $dark-red;
+            font-family: Arial;
+            font-size: 1.5vh;
+            padding: 2vh 1vw;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+
+          label::after {
+            margin-left: 1vw;
+            content: "OFF";
+          }
+        }
       }
 
       .accept_block {
+        margin-top: 1vw;
         transition: opacity 0.2s;
         opacity: 0;
-        width: 60%;
+        width: 80%;
         grid-row: 3;
         display: grid;
         justify-self: center;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 50% 50%;
         overflow: hidden;
         font-size: 3vh;
         white-space: nowrap;
 
         .accept {
-          background: linear-gradient(115deg, transparent 20%, $green 20%);
+          overflow: hidden;
+          background: $green;
           display: grid;
-          justify-content: right;
+          justify-content: center;
           align-content: center;
           padding: 0 2vw;
           @include h_cur();
@@ -615,10 +703,11 @@ div:has(textarea) {
         }
 
         .cancel {
+          overflow: hidden;
           color: $purple;
-          background: linear-gradient(-115deg, transparent 20%, $red 20%);
+          background: $red;
           display: grid;
-          justify-content: left;
+          justify-content: center;
           align-content: center;
           padding: 0 2vw;
           @include h_cur();
@@ -668,6 +757,80 @@ div:has(textarea) {
           transparent 60%,
           transparent 100%
         );
+    }
+  }
+}
+
+.report_page {
+  display: none;
+  align-self: stretch;
+  justify-self: stretch;
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+  grid-template-rows: 10vh 1fr 20vh;
+
+  .title_block {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    .title {
+      font-size: 4vh;
+    }
+  }
+
+  .preview_block {
+    background: rgba(0, 0, 0, 0.349);
+    display: grid;
+
+    justify-items: stretch;
+    align-items: stretch;
+
+    .preview {
+      margin: 4vh 2vw;
+      display: grid;
+      justify-items: stretch;
+      align-items: stretch;
+
+      .iframe {
+        scale: 5;
+        width: 1920px;
+        height: 1080px;
+      }
+    }
+  }
+
+  .time_load_block {
+    margin: 4vh 2w;
+    font-family: W;
+    display: grid;
+    //font-size: 1.8vh;
+
+    .matter2 {
+      color: $yellow;
+    }
+
+    .time_load {
+      color: $orange;
+      background: linear-gradient(
+        135deg,
+        transparent 10%,
+        $dark-red 10%,
+        $dark-red 65%,
+        rgba(255, 255, 255, 0.1) 65%,
+        rgba(255, 255, 255, 0.1) 80%,
+        $dark-red 80%,
+        $dark-red 90%,
+        transparent 10%
+      );
+      padding: 2vh 3vw;
+      display: grid;
+      align-self: start;
+      grid-template-columns: 70% 20% 10%;
+
+      div {
+        overflow: hidden;
+        font-size: 2.5vh;
+      }
     }
   }
 }

@@ -2,7 +2,6 @@ const theme = 'the-matrix';
 
 $('.html_page').css('visibility', 'hidden');
 
-
 const main_set = {
     theme: theme,
     lineNumbers: true,
@@ -13,6 +12,9 @@ const main_set = {
     continueComments: true,
     tabSize: 2,
     scrollPastEnd: true,
+    //minimap: true,
+    //miniMapWidth: 60,
+    //miniMapSide: "left",
 }
 
 var editor = CodeMirror.fromTextArea(document.getElementById('code_editor_css'), {
@@ -40,10 +42,10 @@ var out = CodeMirror.fromTextArea(document.getElementById('code_out'), {
 });
 
 editor.on('change', validateCSS);
-// editor.on('change', hintCSS);
+// editor.on('cursorActivity', hintCSS);
 
 // function hintCSS() {
-//     CodeMirror.showHint();
+//    editor.showHint();
 // };
 
 function validateCSS() {

@@ -80,7 +80,25 @@
                         </div>
                     </div>
 
-                    <div class="main_col report_page"></div>
+                    <div class="main_col report_page">
+                        <div class="title_block">
+                            <div class="title">
+                                До рефаткоринга
+                            </div>
+                        </div>
+                        <div class="preview_block">
+                            <div class="preview">
+                                <iframe></iframe>
+                            </div>
+                        </div>
+                        <div class="time_load_block">
+                            <div class="time_load">
+                                <div>Время загрузки в среднем:</div>
+                                <div class="matter2 time_val">22000</div>
+                                <div>мс</div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="beauty_col"></div>
                 </div>
@@ -100,7 +118,7 @@
                                 НАСТРОЙКИ
                             </div>
                             <div class="content z1">
-                                <form id="settings_form">
+                                
 
                                     <div class="global_set">
                                         <div class="set_title">
@@ -123,11 +141,100 @@
                                         </div>
                                     </div>
 
-                                </form>
+                                <!--form id="csscomb_form"-->
+
+                                    <div class="csscomb_set">
+                                        <div class="inner">
+                                            <label for="id_block-indent">пробелов при табуляции</label>
+                                            <input id="id_block-indent" name="block-indent" value="2" maxlength="1"/>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_always-semicolon" name="always-semicolon" checked/>
+                                            <label for="id_always-semicolon">расставлять ";"</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_color-case">из #FFF в #fff (если OFF, то наоборот)</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_color-shorthand" name="color-shorthand" checked/>
+                                            <label for="id_color-shorthand">из #ffcc00 в #fc0 (если OFF, то наоборот)</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_element-case" name="element-case" value="lower" checked/>
+                                            <label for="id_element-case">из "BODY" в "body" (если OFF, то наоборот)</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_eof-newline" name="eof-newline" checked/>
+                                            <label for="id_eof-newline">после "}" добавлять "\n" (если OFF, то удалять)</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_leading-zero" name="leading-zero"/>
+                                            <label for="id_leading-zero">из ".5em" в "0.5em" (если OFF, то наоборот)</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_quotes" name="quotes" value="single" checked/>
+                                            <label for="id_quotes">из ["] в ['] (если OFF, то наоборот)</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_remove-empty-rulesets" name="remove-empty-rulesets" checked/>
+                                            <label for="id_remove-empty-rulesets">удалять пустые обьявления</label>
+                                        </div>
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
+                                            <label for="id_always-semicolon">RED -> red</label>
+                                        </div-->
+                                        <div class="check">
+                                            <input type="checkbox" id="id_strip-spaces" name="strip-spaces" checked/>
+                                            <label for="id_strip-spaces">удалять лишние пробелы</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_unitless-zero" name="unitless-zero" checked/>
+                                            <label for="id_unitless-zero">обращать "0px", "0em" и т.д. в "0"</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_vendor-prefix-align" name="vendor-prefix-align" checked/>
+                                            <label for="id_vendor-prefix-align">выравнивать вендорные префиксы</label>
+                                        </div>
+                                    </div>
+
+                                <!--/form-->
                             </div>
                             <div class="accept_block z1">
-                                <div class="accept">ОК &#10004;</div>
-                                <div class="cancel">&#10006; ОТМЕНА</div>
+                                <div class="accept">ПРИМЕНИТЬ</div>
+                                <div class="cancel">ОТМЕНА</div>
                             </div>
                         </div>
 
@@ -151,12 +258,32 @@
                         </div>
                     </div>
 
-                    <div class="main_col report_page"></div>
+                    <div class="main_col report_page">
+                        <div class="title_block">
+                            <div class="title">
+                                После рефаткоринга
+                            </div>
+                        </div>
+                        <div class="preview_block">
+                            <div class="preview">
+                                <iframe></iframe>
+                            </div>
+                        </div>
+                        <div class="time_load_block">
+                            <div class="time_load">
+                                <div>Время загрузки в среднем:</div>
+                                <div class="matter2 time_val">22000</div>
+                                <div>мс</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div> 
         </div>
     </body>
     <script src="./scripts/jquery.js"></script>
+
+    <script src="./scripts/csscomb_config.js"></script>
 
     <script src="./scripts/FileSaver.js"></script>
     <script src="./scripts/csstree-validator.js"></script>
@@ -169,8 +296,9 @@
     <script src="./scripts/codemirror/addon/edit/closetag.js"></script>
     <script src="./scripts/codemirror/addon/comment/continuecomment.js"></script>
     <script src="./scripts/codemirror/addon/scroll/scrollpastend.js"></script>
-    <!--script src="./scripts/codemirror/addon/hint/show-hint.js"></script>
-    <script src="./scripts/codemirror/addon/hint/css-hint.js"></script-->
+    <script src="./scripts/codemirror/addon/hint/show-hint.js"></script>
+    <script src="./scripts/codemirror/addon/hint/css-hint.js"></script>
+
     <script src="./scripts/code_editor.js"></script>
 
     <script src="./scripts/btn_controller.js"></script>
