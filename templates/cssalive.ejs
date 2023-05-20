@@ -52,7 +52,7 @@
                             <p>ИЛИ</p>
                             <form method="post" enctype="multipart/form-data" id="id_form_upload_css">
                                 <input type="hidden" id="MAX_FILE_SIZE_CSS" name="MAX_FILE_SIZE" value="100000000" />
-                                <input type="file" id="id_file_css" name="css_file" onchange="loadFile(this)"/><label for="id_file_css"><div class="open_but">Добавьте Файл</div></label>
+                                <input type="file" id="id_file_css" name="css_file"/><label for="id_file_css"><div class="open_but">Добавьте Файл</div></label>
                                 <input type="submit" id="sub_css" name="sub_css" hidden>
                             </form>
                         </div>
@@ -70,7 +70,7 @@
                             <p>ИЛИ</p>
                             <form method="post" enctype="multipart/form-data" id="id_form_upload_html">
                                 <input type="hidden" id="MAX_FILE_SIZE_HTML" name="MAX_FILE_SIZE" value="100000000" />
-                                <input type="file" id="id_file_html" name="html_file" onchange="loadFile(this)"/><label for="id_file_html"><div class="open_but">Добавьте Файл</div></label>
+                                <input type="file" id="id_file_html" name="html_file"/><label for="id_file_html"><div class="open_but">Добавьте Файл</div></label>
                                 <input type="submit" id="sub_html" name="sub" hidden>
                             </form>
                         </div>
@@ -281,12 +281,12 @@
             </div> 
         </div>
     </body>
-    <script src="./scripts/jquery.js"></script>
+    <!--IMPORTS-->
+    <script src="./scripts/import/jquery.js"></script>
 
-    <script src="./scripts/csscomb_config.js"></script>
+    <script src="./scripts/import/FileSaver.js"></script>
 
-    <script src="./scripts/FileSaver.js"></script>
-    <script src="./scripts/csstree-validator.js"></script>
+    <script src="./scripts/import/csstree-validator.js"></script>
 
     <script src="./scripts/codemirror/lib/codemirror.js"></script>
     <script src="./scripts/codemirror/mode/css/css.js"></script>
@@ -296,13 +296,12 @@
     <script src="./scripts/codemirror/addon/edit/closetag.js"></script>
     <script src="./scripts/codemirror/addon/comment/continuecomment.js"></script>
     <script src="./scripts/codemirror/addon/scroll/scrollpastend.js"></script>
-    <script src="./scripts/codemirror/addon/hint/show-hint.js"></script>
-    <script src="./scripts/codemirror/addon/hint/css-hint.js"></script>
 
-    <script src="./scripts/code_editor.js"></script>
+    <!--OWN SCRIPTS-->
+    <script src="./scripts/constants.js"></script>
+    <script src="./scripts/csscomb_config.js"></script>
 
-    <script src="./scripts/btn_controller.js"></script>
-    <script src="./scripts/svg_replacer.js"></script>
-    <script src="./scripts/load_file_controller.js"></script>
-    <script src="./scripts/upload_block_controller.js"></script>
+    <script src="./scripts/FileController.js"></script>
+    <script src="./scripts/StyleController.js"></script>
+    <script src="./scripts/eventHandler.js"></script>
 </html>
