@@ -8,22 +8,20 @@ const fs = require('fs');
 
 
 async function startRefactor(data, config) {
-    let json = config;
-    //fs.writeFileSync('csscomb.json', json, 'utf8');
-    //fs.readFileSync('./csscomb.json', 'utf8', (err, data) => {
-    //    console.log(JSON.parse(data));
-    //});
-    let path = require('.');
-    let comb = new Comb(path);
-    //console.log(data);
+    let comb = new Comb();
+    comb.configure(JSON.parse(config));
+    //console.log(JSON.parse(config));
     if (data.settings == "set_minify") {
-        //console.log('ss2');
         return CSSO.minify(data).css;
     }
     else {
         let css = await comb.processString(data);
-        //console.log('ss1');
-        return css;
+        try{
+            return css;
+        }
+        catch(e){
+            return "ERROR USE CSSCOMB";
+        }
     }
 }
 

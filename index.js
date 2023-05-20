@@ -20,7 +20,6 @@ app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
 });
 
-
 //routes
 app.get('/', (req, res) => {
     res.render('index');
@@ -40,7 +39,6 @@ app.get('/app', (req, res) => {
 
 app.post('/app/result', (req, res) => {
     //console.log("we are");
-    //console.log(req.body);
     sys.startRefactor(req.body.text, req.body.config).then((data) => res.send(data));
 });
 

@@ -2,6 +2,12 @@
 /*****OTHER******/
 /****************/
 
+const configVals = {
+    caseVals: { true: 'lower', false: 'upper' },
+    quotesVals: { true: 'single', false: 'double' },
+    logicVals: { true: true, false: false },
+};
+
 const rightcol_text = {
     start: `
     <p>Здесь появится результат,</p>
