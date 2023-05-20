@@ -560,12 +560,16 @@ div:has(textarea) {
         }
 
         .set_title {
-          font-size: 2vh;
+          font-size: 1.3vh;
           display: grid;
           justify-content: end;
+          margin-right: 1vw;
+          font-family: W;
         }
 
         .about {
+          color: $dark-dark-yellow;
+          font-size: 1.8vh;
           margin-top: 2vh;
           white-space: unset;
         }

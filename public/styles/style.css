@@ -444,11 +444,15 @@ div:has(textarea) {
   padding: 2vh 0;
 }
 .middlecol .settings_block .main_col .content .set_title {
-  font-size: 2vh;
+  font-size: 1.3vh;
   display: grid;
   justify-content: end;
+  margin-right: 1vw;
+  font-family: W;
 }
 .middlecol .settings_block .main_col .content .about {
+  color: rgba(187, 184, 123, 0.5);
+  font-size: 1.8vh;
   margin-top: 2vh;
   white-space: unset;
 }

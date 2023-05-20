@@ -137,20 +137,32 @@
                                             <label for="set_other">Другое</label>
                                         </div-->
                                         <div class="about">
-                                            
+                                            Этот выбор изменит все остальные настройки
                                         </div>
                                     </div>
 
                                 <!--form id="csscomb_form"-->
 
                                     <div class="csscomb_set">
+                                        <div class="set_title">
+                                            РЕДАКТОР:
+                                        </div>
                                         <div class="inner">
                                             <label for="id_block-indent">пробелов при табуляции</label>
                                             <input id="id_block-indent" name="block-indent" value="2" maxlength="1"/>
                                         </div>
                                         <div class="check">
+                                            <input type="checkbox" id="id_eof-newline" name="eof-newline" checked/>
+                                            <label for="id_eof-newline">после "}" добавлять "\n" (если OFF, то удалять)</label>
+                                        </div>
+                                        <div class="check">
                                             <input type="checkbox" id="id_always-semicolon" name="always-semicolon" checked/>
                                             <label for="id_always-semicolon">расставлять ";"</label>
+                                        </div>
+                                    </div>
+                                    <div class="csscomb_set">
+                                        <div class="set_title">
+                                            ПРЕДНАСТРОЙКИ:
                                         </div>
                                         <div class="check">
                                             <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
@@ -164,10 +176,7 @@
                                             <input type="checkbox" id="id_element-case" name="element-case" value="lower" checked/>
                                             <label for="id_element-case">из "BODY" в "body" (если OFF, то наоборот)</label>
                                         </div>
-                                        <div class="check">
-                                            <input type="checkbox" id="id_eof-newline" name="eof-newline" checked/>
-                                            <label for="id_eof-newline">после "}" добавлять "\n" (если OFF, то удалять)</label>
-                                        </div>
+                                        
                                         <div class="check">
                                             <input type="checkbox" id="id_leading-zero" name="leading-zero"/>
                                             <label for="id_leading-zero">из ".5em" в "0.5em" (если OFF, то наоборот)</label>
