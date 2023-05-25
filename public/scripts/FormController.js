@@ -9,7 +9,7 @@ class FormController {
     }
 
     static getConfigFromForm() {
-        let settings = {
+        let settingsComb = {
             "always-semicolon": FormController.getCheckInput('#id_always-semicolon'),
             "block-indent": Number($('#id_block-indent').val()),
             "color-case": FormController.getCheckInput('#id_color-case'),
@@ -23,24 +23,45 @@ class FormController {
             "unitless-zero": FormController.getCheckInput('#id_unitless-zero'),
             "vendor-prefix-align": FormController.getCheckInput('#id_vendor-prefix-align'),
         };
-        return CSSCombConfigurator.formatToCSSComb(settings);
+        settingsComb = CSSCombConfigurator.formatToCSSComb(settingsComb);
+
+        let settingsNano = {
+            autoprefixer: FormController.getCheckInput('#id_autoprefixer'),
+            calc: FormController.getCheckInput('#id_calc'),
+            colormin: FormController.getCheckInput('#id_colormin'),
+            convertValues: FormController.getCheckInput('#id_convertValues'),
+            discardComments: FormController.getCheckInput('#id_discardComments'),
+            discardEmpty: settingsComb["remove-empty-rulesets"],
+            //discardUnused: FormController.getCheckInput('#id_discardUnused'),
+            mergeLonghand: FormController.getCheckInput('#id_mergeLonghand'),
+            mergeRules: FormController.getCheckInput('#id_mergeRules'),
+            minifyFontValues: FormController.getCheckInput('#id_minifyFontValues'),
+            minifyGradients: FormController.getCheckInput('#id_minifyGradients'),
+            normalizeWhitespace: FormController.getCheckInput('#id_normalizeWhitespace'),
+            zindex: FormController.getCheckInput('#id_zindex'),
+        }
+        return { comb: settingsComb, nano: settingsNano };
     }
-    
-    static setSettingsToForm(settings) {
-        for (let element in settings) {
+
+    static setSettingsToForm(settingsComb, settingsNano) {
+        for (let element in settingsComb) {
             let obj = '#id_' + element;
             // let val;
             // for (let subval in configVals) {
             //     val = Object.keys(configVals[subval]).find(key => configVals[subval][key] == settings[element]);
             // }
             // FormController.setCheckInput(obj, val);
-            if (settings[element] == true) FormController.setCheckInput(obj, true);
-            if (settings[element] == false) FormController.setCheckInput(obj, false);
-            if (settings[element] == 'lower') FormController.setCheckInput(obj, true);
-            if (settings[element] == 'upper') FormController.setCheckInput(obj, false);
-            if (settings[element] == 'single') FormController.setCheckInput(obj, true);
-            if (settings[element] == 'double') FormController.setCheckInput(obj, false);
-            if (element == 'block-indent') $('#id_' + element).val(settings[element]);
+            if (settingsComb[element] == true) FormController.setCheckInput(obj, true);
+            if (settingsComb[element] == false) FormController.setCheckInput(obj, false);
+            if (settingsComb[element] == 'lower') FormController.setCheckInput(obj, true);
+            if (settingsComb[element] == 'upper') FormController.setCheckInput(obj, false);
+            if (settingsComb[element] == 'single') FormController.setCheckInput(obj, true);
+            if (settingsComb[element] == 'double') FormController.setCheckInput(obj, false);
+            if (element == 'block-indent') $('#id_' + element).val(settingsComb[element]);
+        }
+        for (let element in settingsNano) {
+            let obj = '#id_' + element;
+            FormController.setCheckInput(obj, Boolean(settingsNano[element]));
         }
     }
 }

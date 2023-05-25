@@ -1,28 +1,32 @@
+import postcss from 'postcss';
+import cssnano from 'cssnano';
+import advencedPreset from 'cssnano-preset-advanced';
 
-const { json } = require('body-parser');
-const Comb = require('csscomb');
-const CSSO = require('csso');
-const fs = require('fs');
+import Comb from 'csscomb';
+import autoprefixer2 from 'autoprefixer';
+//const Comb = require('csscomb');
+//import CSSO from 'csso';
+//const fs = require('fs');
 
-//const config = require('./csscomb.json');
 
+export async function startRefactor(data, configComb, configNano) {
+    configComb = JSON.parse(configComb);
+    configNano = JSON.parse(configNano);
 
-async function startRefactor(data, config) {
+    let autoprefixer_enabler = {};
+    if (configNano.autoprefixer == true) autoprefixer_enabler = { plugins: [autoprefixer2] };
+
     let comb = new Comb();
-    comb.configure(JSON.parse(config));
-    //console.log(JSON.parse(config));
-    if (data.settings == "set_minify") {
-        return CSSO.minify(data).css;
+    comb.configure(configComb);
+    try {
+        data = await comb.processString(data);
     }
-    else {
-        let css = await comb.processString(data);
-        try{
-            return css;
-        }
-        catch(e){
-            return "ERROR USE CSSCOMB";
-        }
+    catch (e) {
+        return "ERROR WHILE PROCCESSING CSSCOMB";
     }
+    data = await postcss([cssnano({
+        preset: [advencedPreset, configNano],
+        ...autoprefixer_enabler,
+    })]).process(data, { from: undefined }).then(res => res.css);
+    return data;
 }
-
-module.exports.startRefactor = startRefactor;

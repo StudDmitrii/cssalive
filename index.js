@@ -1,7 +1,10 @@
 //import
-const sys = require('./sys.js');
-const express = require('express');
-const bodyParser = require('body-parser');
+import * as sys from './sys.js';
+import express from 'express';
+import bodyParser from 'body-parser';
+// const sys = require('./sys.js');
+// const express = require('express');
+// const bodyParser = require('body-parser');
 //const
 const PORT = 3001;
 const app = express();
@@ -39,7 +42,8 @@ app.get('/app', (req, res) => {
 
 app.post('/app/result', (req, res) => {
     //console.log("we are");
-    sys.startRefactor(req.body.text, req.body.config).then((data) => res.send(data));
+    let r = req.body;
+    sys.startRefactor(r.text, r.configComb, r.configNano).then((data) => res.send(data));
 });
 
 app.use((req, res) => {

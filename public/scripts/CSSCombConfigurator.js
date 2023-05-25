@@ -1,21 +1,12 @@
-class CSSCombConfigurator{
-
-    static sendConfig(config){
-        let css = editor.getValue();
-        $.post("http://localhost:3001/app/result", { text: css, config: config }, (data) => {
-            out.setValue(data);
-            $('.css').click();
-            StyleController.successStart();
-        });
-    }
+class CSSCombConfigurator {
 
     static makeConfig(settings) {
-        let c = CSSCombConfigurator.config_template;
-        for (let set in c) {
+        let template = CSSCombConfigurator.config_template;
+        for (let set in template) {
             if (settings[set] !== undefined)
-                c[set] = settings[set];
+                template[set] = settings[set];
         }
-        return JSON.stringify(c);
+        return JSON.stringify(template);
     }
 
     static formatToCSSComb(settings) {

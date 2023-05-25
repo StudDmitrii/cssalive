@@ -1,9 +1,12 @@
 /******************/
 /*****ON_START******/
 /******************/
-let start_settings_state = FormController.getConfigFromForm();
-let current_settings_state = start_settings_state;
-let config = CSSCombConfigurator.makeConfig(start_settings_state);
+let comb_start_settings_state = FormController.getConfigFromForm().comb;
+let nano_start_settings_state = FormController.getConfigFromForm().nano;
+let comb_current_settings_state = comb_start_settings_state;
+let nano_current_settings_state = nano_start_settings_state;
+let configComb = CSSCombConfigurator.makeConfig(comb_start_settings_state);
+let configNano = CSSNanoConfigurator.makeConfig(nano_start_settings_state);
 
 /******************/
 /*****EDITORs******/
@@ -64,13 +67,15 @@ $('.leftcol, .rightcol, .app_nav').on('click', () => {
 }); //click over settings block
 
 $('.settings_block .cancel').on('click', () => {
-    FormController.setSettingsToForm(current_settings_state);
+    FormController.setSettingsToForm(comb_current_settings_state, nano_current_settings_state);
     StyleController.closeSettings();
 }); //click cancel but
 
 $('.settings_block .accept').on('click', () => {
-    current_settings_state = FormController.getConfigFromForm();
-    config = CSSCombConfigurator.makeConfig(current_settings_state);
+    comb_current_settings_state = FormController.getConfigFromForm().comb;
+    nano_current_settings_state = FormController.getConfigFromForm().nano;
+    configComb = CSSCombConfigurator.makeConfig(comb_current_settings_state);
+    configNano = CSSNanoConfigurator.makeConfig(nano_current_settings_state);
     StyleController.closeSettings();
 }); //click accept but
 
@@ -82,9 +87,9 @@ $('.settings_block .accept').on('click', () => {
 $('.middlecol .start').on('click', () => {
     if (editor.getValue() != "" && FileController.validateCSS() == true) {
         StyleController.hideRightColHint();
-        CSSCombConfigurator.sendConfig(config);
+        DataSender.sendConfig(configComb, configNano);
     }
-    else{
+    else {
         $('.css').click();
         StyleController.failureStart();
     }

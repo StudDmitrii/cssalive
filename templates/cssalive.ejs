@@ -162,7 +162,7 @@
                                     </div>
                                     <div class="csscomb_set">
                                         <div class="set_title">
-                                            ПРЕДНАСТРОЙКИ:
+                                            ДРУГОЕ:
                                         </div>
                                         <div class="check">
                                             <input type="checkbox" id="id_color-case" name="color-case" value="lower" checked/>
@@ -238,6 +238,73 @@
                                             <label for="id_vendor-prefix-align">выравнивать вендорные префиксы</label>
                                         </div>
                                     </div>
+                                    <!--div class="lib_select">
+                                        <div class="set_title">
+                                            БИБЛИОТЕКА ОПТИМИЗАЦИИ:
+                                        </div>
+                                        <div class="radio">
+                                            <label for="id_csso">CSSO</label>
+                                            <input type="radio" id="id_csso" name="min_lib" value="csso"/>
+                                        </div>
+                                        <div class="radio">
+                                            <label for="id_cssnano">CSSNano</label>
+                                            <input type="radio" id="id_cssnano" name="min_lib" value="cssnano" checked/>
+                                        </div>
+                                    </div-->
+
+                                    <div class="csscomb_set">
+                                        <div class="set_title">
+                                            Оптимизация:
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_autoprefixer" name="autoprefixer"/>
+                                            <label for="id_autoprefixer">Контролировать вендорные префиксы</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_calc" name="calc"/>
+                                            <label for="id_calc">Считать calc(...)</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_colormin" name="colormin"/>
+                                            <label for="id_colormin">Конвертировать цвета в наименьший формат</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_convertValues" name="convertValues"/>
+                                            <label for="id_convertValues">Конвертировать значения в эквивалентные</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_discardComments" name="discardComments"/>
+                                            <label for="id_discardComments">Удалять комментарии (кроме тех что с "!")</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_mergeLonghand" name="mergeLonghand"/>
+                                            <label for="id_mergeLonghand">Сжимать значения для margin, padding, border</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_mergeRules" name="mergeRules"/>
+                                            <label for="id_mergeRules">Объединять правила</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_minifyFontValues" name="minifyFontValues"/>
+                                            <label for="id_minifyFontValues">Нормализовать font-family, font-weight</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_minifyGradients" name="minifyGradients"/>
+                                            <label for="id_minifyGradients">Нормализовать градиенты</label>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" id="id_zindex" name="zindex"/>
+                                            <label for="id_zindex">Пересчитать значения z-index (НЕБЕЗОПАСНО)</label>
+                                        </div>
+                                        <!--div class="check">
+                                            <input type="checkbox" id="id_discardUnused" name="discardUnused"/>
+                                            <label for="id_discardUnused">удалять правила типа @keyframes которые не используются (НЕБЕЗОПАСНО)</label>
+                                        </div-->
+                                        <div class="check">
+                                            <input type="checkbox" id="id_normalizeWhitespace" name="normalizeWhitespace"/>
+                                            <label for="id_normalizeWhitespace">Всё в одну строку</label>
+                                        </div>
+                                    </div>
 
                                 <!--/form-->
                             </div>
@@ -308,10 +375,11 @@
 
     <!--OWN SCRIPTS-->
     <script src="./scripts/constants.js"></script>
-    <!--script src="./scripts/csscomb_config.js"></script-->
 
     <script src="./scripts/FormController.js"></script>
     <script src="./scripts/CSSCombConfigurator.js"></script>
+    <script src="./scripts/CSSNanoConfigurator.js"></script>
+    <script src="./scripts/DataSender.js"></script>
     <script src="./scripts/FileController.js"></script>
     <script src="./scripts/StyleController.js"></script>
     <script src="./scripts/eventHandler.js"></script>

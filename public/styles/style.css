@@ -436,12 +436,23 @@ div:has(textarea) {
 }
 .middlecol .settings_block .main_col .content .global_set {
   background: rgba(0, 0, 0, 0.096);
+  margin: 2vh 0;
   padding: 2vh 2vw;
+}
+.middlecol .settings_block .main_col .content .lib_select {
+  background: rgba(0, 0, 0, 0.096);
+  margin: 2vh 0;
+  padding: 2vh 2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.middlecol .settings_block .main_col .content .lib_select input:checked + label {
+  background: rgb(112, 53, 53);
 }
 .middlecol .settings_block .main_col .content .csscomb_set {
   background: rgba(0, 0, 0, 0.096);
-  margin: 2vh 0;
-  padding: 2vh 0;
+  margin: 1vh 0;
+  padding: 2vh 0 0 0;
 }
 .middlecol .settings_block .main_col .content .set_title {
   font-size: 1.3vh;

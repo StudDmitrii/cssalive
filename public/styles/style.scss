@@ -549,14 +549,28 @@ div:has(textarea) {
 
         .global_set {
           background: rgba(0, 0, 0, 0.096);
+          margin: 2vh 0;
           padding: 2vh 2vw;
           //font-size: 1.8vh;
         }
 
-        .csscomb_set {
+        .lib_select {
           background: rgba(0, 0, 0, 0.096);
           margin: 2vh 0;
-          padding: 2vh 0;
+          padding: 2vh 2vw;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          //font-size: 1.8vh;
+
+          input:checked + label {
+            background: $red;
+          }
+        }
+
+        .csscomb_set {
+          background: rgba(0, 0, 0, 0.096);
+          margin: 1vh 0;
+          padding: 2vh 0 0 0;
         }
 
         .set_title {
