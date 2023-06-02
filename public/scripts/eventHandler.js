@@ -100,12 +100,15 @@ $('.middlecol .start').on('click', () => {
 /*****CSS AND HTML PAGES*****/
 /****************************/
 
+let css_is_open = true;
 $(".html").on("click", () => {
     StyleController.openHTML();
+    css_is_open = false;
 });
 
 $(".css").on("click", () => {
     StyleController.openCSS();
+    css_is_open = true;
 });
 
 
@@ -131,10 +134,14 @@ $('#id_file_css').on('change', () => {
 /***************/
 
 $('.clear_in').on('click', () => {
-    if ($('.css_page').css('display') == 'none')
+    if (css_is_open == false) {
         editor2.setValue("");
-    else
+        css_is_open = false;
+    }
+    else {
         editor.setValue("");
+        css_is_open = true;
+    }
 });
 
 $('.clear_out').on('click', () => {
@@ -166,8 +173,10 @@ $('.move_out').on('click', () => {
 
 let report_is_open = false;
 $('.report').on('click', () => {
-    if (report_is_open == false)
+    if (report_is_open == false) {
         StyleController.openReport();
+        ReportController.start();
+    }
     else
         StyleController.closeReport();
     report_is_open = !report_is_open;

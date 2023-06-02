@@ -5,7 +5,6 @@ import advencedPreset from 'cssnano-preset-advanced';
 import Comb from 'csscomb';
 import autoprefixer2 from 'autoprefixer';
 //const Comb = require('csscomb');
-//import CSSO from 'csso';
 //const fs = require('fs');
 
 
