@@ -39,6 +39,7 @@ class FileController {
     static validateCSS() {
         let marks = editor.getAllMarks().forEach(i => i.clear());
         let valid = csstreeValidator.validate(editor.getValue());
+        //alert(valid[0].line);
         if (valid == 0) return true;
         for (let err of valid) {
             let l = err.line - 1;

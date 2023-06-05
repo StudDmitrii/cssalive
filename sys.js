@@ -11,7 +11,7 @@ import autoprefixer2 from 'autoprefixer';
 export async function startRefactor(data, configComb, configNano) {
     configComb = JSON.parse(configComb);
     configNano = JSON.parse(configNano);
-
+    console.log('ss');
     let autoprefixer_enabler = {};
     if (configNano.autoprefixer == true) autoprefixer_enabler = { plugins: [autoprefixer2] };
 
@@ -27,5 +27,6 @@ export async function startRefactor(data, configComb, configNano) {
         preset: [advencedPreset, configNano],
         ...autoprefixer_enabler,
     })]).process(data, { from: undefined }).then(res => res.css);
+    console.log(data);
     return data;
 }

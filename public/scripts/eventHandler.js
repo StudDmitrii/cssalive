@@ -83,7 +83,6 @@ $('.settings_block .accept').on('click', () => {
 /***************/
 /*****START*****/
 /***************/
-
 $('.middlecol .start').on('click', () => {
     if (editor.getValue() != "" && FileController.validateCSS() == true) {
         StyleController.hideRightColHint();
