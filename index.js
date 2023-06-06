@@ -2,17 +2,25 @@
 import * as sys from './sys.js';
 import express from 'express';
 import bodyParser from 'body-parser';
-// const sys = require('./sys.js');
-// const express = require('express');
-// const bodyParser = require('body-parser');
+import authRouter from './authRouter.js';
+import db from './db.js';
+import Users from './models/Users.js';
+import Reps from './models/Reps.js';
+import cookie from "cookie-parser";
+import authMiddleware from './authMiddleware.js';
+
 //const
 const PORT = 3001;
 const app = express();
+
+db.authenticate().catch(error => console.error(error));
 
 //middleware - операции которые происходят между получением данных от клиента и отправки ответа
 app.use(express.static('public')); //разрешить доступ клиента к папке
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/auth", authRouter);
+app.use(cookie());
 
 //config
 app.set('view engine', 'ejs');
@@ -25,12 +33,13 @@ app.listen(PORT, () => {
 
 //routes
 app.get('/', (req, res) => {
+    //db.sync({ force: true });
     res.render('index');
 });
 
-app.post('/start', (req, res) => {
-    controller.Start(req);
-});
+// app.post('/start', (req, res) => {
+//     controller.Start(req);
+// });
 
 app.get('/about', (req, res) => {
     res.redirect('/');

@@ -23,6 +23,9 @@ $download_icon: url("../imgs/download.png");
 $menu_icon: url("../imgs/menu.png");
 $clear_icon: url("../imgs/clear2.png");
 $move_icon: url("../imgs/right-arrow2.png");
+$files_icon: url("../imgs/folder.png");
+$login_icon: url("../imgs/account.png");
+$close_icon: url("../imgs/right-arrow.png");
 
 @mixin cur() {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Arrow.cur"), auto;
@@ -1277,4 +1280,48 @@ label {
 .error_val {
   text-decoration: underline;
   text-decoration-color: red;
+}
+
+.menu_block {
+  display: grid;
+  justify-content: space-around;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 8vh;
+  background: $dark-yellow;
+  transition: width 0.5s;
+
+  & > div {
+    width: 3vw;
+    margin: 2vh 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    &:hover {
+      @include h_cur();
+      opacity: 0.8;
+    }
+  }
+
+  .files {
+    //margin-right: 0.5vw;
+    //background-color: $green;
+    background-image: $files_icon;
+  }
+
+  .login {
+    //margin-right: 0.5vw;
+    //background-color: $font-color;
+    background-image: $login_icon;
+  }
+
+  .close_menu {
+    scale: -1 1;
+    //margin-right: 0.5vw;
+    //background-color: $green;
+    background-image: $close_icon;
+  }
 }

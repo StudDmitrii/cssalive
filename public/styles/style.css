@@ -964,4 +964,38 @@ label {
   text-decoration-color: red;
 }
 
+.menu_block {
+  display: grid;
+  justify-content: space-around;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 8vh;
+  background: rgb(139, 135, 70);
+  transition: width 0.5s;
+}
+.menu_block > div {
+  width: 3vw;
+  margin: 2vh 0;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.menu_block > div:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+  opacity: 0.8;
+}
+.menu_block .files {
+  background-image: url("../imgs/folder.png");
+}
+.menu_block .login {
+  background-image: url("../imgs/account.png");
+}
+.menu_block .close_menu {
+  scale: -1 1;
+  background-image: url("../imgs/right-arrow.png");
+}
+
 /*# sourceMappingURL=style.css.map */

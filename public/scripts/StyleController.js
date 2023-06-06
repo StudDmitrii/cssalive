@@ -4,6 +4,18 @@ $('.rightcol .upload_block').html(rightcol_text.start);
 
 class StyleController {
 
+    static openMenu() {
+        $('.menu_block').css('visibility', 'visible');
+        $('.menu_block').css('width', '15vw');
+        $('.menu').css('visibility', 'hidden');
+    }
+
+    static closeMenu() {
+        $('.menu_block').css('visibility', 'unset');
+        $('.menu_block').css('width', '0');
+        $('.menu').css('visibility', 'unset');
+    }
+
     static openReport() {
         $('.start, .settings').css('display', 'none');
         $('.main_col').css('display', 'none');

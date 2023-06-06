@@ -58,17 +58,22 @@ $('.html_page .upload_block').on('click', () => {
 /*****SETTINGS*****/
 /******************/
 
+let settings_is_open = false;
 $('.settings').on('click', () => {
     StyleController.openSettings();
+    settings_is_open = true;
 }); //click open settings
 
 $('.leftcol, .rightcol, .app_nav').on('click', () => {
+    if (!settings_is_open) return;
     StyleController.closeSettings();
+    settings_is_open = false;
 }); //click over settings block
 
 $('.settings_block .cancel').on('click', () => {
     FormController.setSettingsToForm(comb_current_settings_state, nano_current_settings_state);
     StyleController.closeSettings();
+    settings_is_open = false;
 }); //click cancel but
 
 $('.settings_block .accept').on('click', () => {
@@ -77,6 +82,7 @@ $('.settings_block .accept').on('click', () => {
     configComb = CSSCombConfigurator.makeConfig(comb_current_settings_state);
     configNano = CSSNanoConfigurator.makeConfig(nano_current_settings_state);
     StyleController.closeSettings();
+    settings_is_open = false;
 }); //click accept but
 
 
@@ -179,4 +185,26 @@ $('.report').on('click', () => {
     else
         StyleController.closeReport();
     report_is_open = !report_is_open;
+});
+
+
+/**************/
+/*****MENU*****/
+/**************/
+
+let menu_is_open = false;
+$('.menu').on('click', () => {
+    if (menu_is_open) return;
+    StyleController.openMenu();
+    setTimeout(() => {
+        menu_is_open = true;
+    }, 200);
+});
+
+$('*:not(".menu_block")').on('click', () => {
+    if (!menu_is_open) return;
+    StyleController.closeMenu();
+    setTimeout(() => {
+        menu_is_open = false;
+    }, 500);
 });
