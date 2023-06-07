@@ -1381,3 +1381,85 @@ body:has(.login_page) {
     }
   }
 }
+
+.files_form {
+  visibility: hidden;
+  z-index: 10000000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  //background: red;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+
+  .files_block {
+    padding: 0 0 1vh 0;
+    border-radius: 1vw;
+    display: grid;
+    width: 30vw;
+    background: $dark-yellow;
+    grid-auto-flow: row;
+
+    .control_line {
+      display: grid;
+      grid-template-columns: 1fr 20%;
+      justify-self: stretch;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 1vw 1vw 0 0;
+      padding: 1vw;
+      font-family: W;
+
+      &:hover {
+        @include h_cur();
+        opacity: 0.8;
+      }
+
+      .name {
+        text-shadow: 0.1vh 0.1vw $purple;
+        color: $orange;
+      }
+
+      .close_files {
+        rotate: -90deg;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: $close_icon;
+      }
+    }
+
+    .files_list {
+      min-height: 10vh;
+      display: grid;
+
+      .file_line {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: stretch;
+        align-items: stretch;
+        font-size: 2.4vh;
+        color: white;
+        text-shadow: 0.05vh 0.05vw $purple;
+
+        & > div {
+          display: grid;
+          align-content: center;
+          justify-content: center;
+        }
+
+        .load_file {
+          margin: 0.5vh 0.5vw;
+          border-radius: 2vw;
+          background: rgba(0, 0, 0, 0.1);
+
+          &:hover {
+            @include h_cur();
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

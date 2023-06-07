@@ -4,6 +4,14 @@ $('.rightcol .upload_block').html(rightcol_text.start);
 
 class StyleController {
 
+    static openFiles() {
+        $('.files_form').css('visibility', 'visible');
+    }
+
+    static closeFiles() {
+        $('.files_form').css('visibility', 'hidden');
+    }
+
     static openMenu() {
         $('.menu_block').css('visibility', 'visible');
         $('.menu_block').css('width', '15vw');

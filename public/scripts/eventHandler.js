@@ -210,3 +210,21 @@ $('*:not(".menu_block")').on('click', () => {
         menu_is_open = false;
     }, 500);
 });
+
+
+/***************/
+/*****FILES*****/
+/***************/
+
+let files_is_open = false;
+$('.files').on('click', () => {
+    if (files_is_open) return;
+    StyleController.openFiles();
+    files_is_open = true;
+});
+
+$('.control_line').on('click', () => {
+    if (!files_is_open) return;
+    StyleController.closeFiles();
+    files_is_open = false;
+});
