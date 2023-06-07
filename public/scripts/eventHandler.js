@@ -89,10 +89,12 @@ $('.settings_block .accept').on('click', () => {
 /***************/
 /*****START*****/
 /***************/
+
 $('.middlecol .start').on('click', () => {
     if (editor.getValue() != "" && FileController.validateCSS() == true) {
         StyleController.hideRightColHint();
-        DataSender.sendConfig(configComb, configNano);
+        DataSender.sendRefactor(configComb, configNano, editor.getValue());
+        // DataSender.sendFiles([editor.getValue(), editor2.getValue(), out.getValue()]);
     }
     else {
         $('.css').click();

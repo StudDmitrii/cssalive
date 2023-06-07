@@ -976,14 +976,14 @@ label {
   background: rgb(139, 135, 70);
   transition: width 0.5s;
 }
-.menu_block > div {
+.menu_block > div, .menu_block > a {
   width: 3vw;
   margin: 2vh 0;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
-.menu_block > div:hover {
+.menu_block > div:hover, .menu_block > a:hover {
   cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
   opacity: 0.8;
 }
@@ -996,6 +996,51 @@ label {
 .menu_block .close_menu {
   scale: -1 1;
   background-image: url("../imgs/right-arrow.png");
+}
+
+body:has(.login_page) {
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  color: rgb(0, 70, 41);
+}
+body:has(.login_page) .login_page {
+  border-radius: 1vh;
+  padding: 1vh 2vw;
+  display: grid;
+  background: rgb(139, 135, 70);
+}
+body:has(.login_page) .login_page h2 {
+  text-shadow: 0.1vh 0.1vw rgb(16, 0, 19);
+  font-size: 4vh;
+}
+body:has(.login_page) .login_page input {
+  padding: 1vh;
+  border: none;
+  border-radius: 2vw;
+  outline: none;
+  margin-top: 2vh;
+  font-size: 2vh;
+}
+body:has(.login_page) .login_page input[type=submit] {
+  background: rgb(0, 70, 41);
+  color: white;
+}
+body:has(.login_page) .login_page input[type=submit]:hover {
+  cursor: url("../fonts/Hacked Mod Cursors/Hacked Mod Green/Hand.cur"), auto;
+}
+body:has(.login_page) .login_page form {
+  display: grid;
+  grid-auto-flow: row;
+}
+body:has(.login_page) .login_page .go_reg {
+  display: grid;
+  justify-content: end;
+  margin-top: 3vh;
+  color: rgb(112, 53, 53);
+  font-size: 2.3vh;
 }
 
 /*# sourceMappingURL=style.css.map */

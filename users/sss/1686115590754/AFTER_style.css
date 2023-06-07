@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial;
+
+  display: flex;
+  flex: 2 1 auto;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+/*-----NAV-----*/
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 10px 10px;
+
+  text-align: center;
+
+  background: rgba(113, 255, 243, .425);
+}
+
+nav > div {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 0;
+}
+
+nav > div > div {
+  padding-right: 20px;
+  padding-left: 20px;
+
+  cursor: pointer;
+}
+
+.login_but {
+  padding-right: 20px;
+  padding-left: 20px;
+
+  cursor: pointer;
+
+  border-radius: 20px;
+  background: rgba(33, 85, 255, .24);
+}
+
+/*-----MAIN-----*/
+main {
+  display: flex;
+  justify-content: stretch;
+
+  background: rgba(49, 161, 73, .425);
+}

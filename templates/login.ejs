@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="stylesheet" href="../styles/style.css">
+        <title>Login</title>
     </head>
     <body>
+    <div class="login_page">
+        <H2>Login</H2>
         <form action="http://localhost:3001/auth/login" method="POST">
-            <input type = "text" name = "username">
-            <input type = "password" name = "password">
-            <input type = "submit" value="login">
+            <label for="id_username"></label>
+            <input type = "text" name = "username" id="id_username" placeholder="nickname">
+            <label for="id_password"></label>
+            <input type = "password" name = "password" id="id_password" placeholder="password">
+            <input type = "submit" value="войти">
         </form>
-        <a href="/auth/registration">Регистрация</a>
+        <a class="go_reg" href="/auth/registration">Зарегистрироваться</a>
+    </div>
     </body>
 </html>

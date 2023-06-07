@@ -33,7 +33,7 @@ class authController {
                 user_name: username,
                 user_password: hashPassword
             });
-            return res.redirect('auth/login');
+            return res.redirect('/auth/login');
         }
         catch (e) {
             console.log(e);
@@ -57,6 +57,7 @@ class authController {
             }
             const token = generateAccessToken(user.user_id);
             res.cookie('token', token);
+            res.cookie('username', user.user_name);
             return res.redirect('/');
         }
         catch (e) {

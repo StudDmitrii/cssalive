@@ -1,5 +1,6 @@
 //import
 import * as sys from './sys.js';
+import * as rep from './rep.js';
 import express from 'express';
 import bodyParser from 'body-parser';
 import authRouter from './authRouter.js';
@@ -34,25 +35,42 @@ app.listen(PORT, () => {
 //routes
 app.get('/', (req, res) => {
     //db.sync({ force: true });
-    res.render('index');
+    res.redirect('/app');
 });
 
 // app.post('/start', (req, res) => {
 //     controller.Start(req);
 // });
 
-app.get('/about', (req, res) => {
-    res.redirect('/');
-});
+// app.get('/about', (req, res) => {
+//     res.redirect('/');
+// });
 
 app.get('/app', (req, res) => {
     res.render('cssalive');
 });
 
+app.get('/rep', authMiddleware, (req, res) => {
+    rep.getFiles(req.cookies.username).then((data) => {
+        console.log(data);
+        if (data == undefined) res.redirect('/');
+        res.send(data);
+    });
+});
+
 app.post('/app/result', (req, res) => {
     //console.log("we are");
     let r = req.body;
-    sys.startRefactor(r.text, r.configComb, r.configNano).then((data) => res.send(data));
+    sys.startRefactor(r.text, r.configComb, r.configNano).then((data) => {
+        res.send(data);
+    });
+});
+
+app.post('/app/result/save', authMiddleware, (req, res) => {
+    let r = req.body;
+    let userName = req.cookies.username;
+    sys.saveFiles(r['fileTexts[]'], userName);
+    res.send();
 });
 
 app.use((req, res) => {

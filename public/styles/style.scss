@@ -1,6 +1,7 @@
 $font-color: rgb(0, 146, 102);
 $light-font-text: rgb(55, 148, 125);
 $green: rgb(0, 70, 41);
+$dark-green: rgb(0, 43, 25);
 $purple: rgb(16, 0, 19);
 $yellow: rgb(207, 198, 69);
 $dark-yellow: rgb(139, 135, 70);
@@ -1294,7 +1295,8 @@ label {
   background: $dark-yellow;
   transition: width 0.5s;
 
-  & > div {
+  & > div,
+  & > a {
     width: 3vw;
     margin: 2vh 0;
     background-position: center;
@@ -1323,5 +1325,59 @@ label {
     //margin-right: 0.5vw;
     //background-color: $green;
     background-image: $close_icon;
+  }
+}
+
+body:has(.login_page) {
+  //background: red;
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  color: $green;
+
+  .login_page {
+    border-radius: 1vh;
+    padding: 1vh 2vw;
+    display: grid;
+    //background-color: green;
+    background: $dark-yellow;
+
+    h2 {
+      text-shadow: 0.1vh 0.1vw $purple;
+      font-size: 4vh;
+    }
+
+    input {
+      padding: 1vh;
+      border: none;
+      border-radius: 2vw;
+      outline: none;
+      margin-top: 2vh;
+      font-size: 2vh;
+
+      &[type="submit"] {
+        background: $green;
+        color: white;
+      }
+
+      &[type="submit"]:hover {
+        @include h_cur();
+      }
+    }
+
+    form {
+      display: grid;
+      grid-auto-flow: row;
+    }
+
+    .go_reg {
+      display: grid;
+      justify-content: end;
+      margin-top: 3vh;
+      color: $red;
+      font-size: 2.3vh;
+    }
   }
 }
