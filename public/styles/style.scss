@@ -1391,23 +1391,25 @@ body:has(.login_page) {
   //background: red;
 
   display: grid;
-  align-content: center;
-  justify-content: center;
+  align-content: start;
+  justify-content: start;
 
   .files_block {
-    padding: 0 0 1vh 0;
-    border-radius: 1vw;
+    padding: 0 0 2vh 0;
     display: grid;
     width: 30vw;
-    background: $dark-yellow;
+    background: linear-gradient(-35deg, transparent 3%, $dark-yellow 3%);
     grid-auto-flow: row;
 
     .control_line {
       display: grid;
       grid-template-columns: 1fr 20%;
       justify-self: stretch;
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 1vw 1vw 0 0;
+      background: linear-gradient(
+        -35deg,
+        transparent 5%,
+        rgba(0, 0, 0, 0.2) 5%
+      );
       padding: 1vw;
       font-family: W;
 
@@ -1431,10 +1433,12 @@ body:has(.login_page) {
     }
 
     .files_list {
-      min-height: 10vh;
+      overflow-y: auto;
+      max-height: 60vh;
       display: grid;
 
       .file_line {
+        min-height: 6vh;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: stretch;
@@ -1451,8 +1455,11 @@ body:has(.login_page) {
 
         .load_file {
           margin: 0.5vh 0.5vw;
-          border-radius: 2vw;
-          background: rgba(0, 0, 0, 0.1);
+          background: linear-gradient(
+            -35deg,
+            transparent 10%,
+            rgba(0, 0, 0, 0.1) 10%
+          );
 
           &:hover {
             @include h_cur();

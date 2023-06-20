@@ -51,11 +51,18 @@ app.get('/app', (req, res) => {
 });
 
 app.get('/rep', authMiddleware, (req, res) => {
-    rep.getFiles(req.cookies.username).then((data) => {
-        console.log(data);
-        if (data == undefined) res.redirect('/');
-        res.send(data);
-    });
+    if (req.query.id == undefined) {
+        rep.getFiles(req.cookies.username).then((data) => {
+            console.log(data);
+            if (data == undefined) res.redirect('/');
+            res.send(data);
+        });
+    }
+    else {
+        rep.loadFile(req.cookies.username, req.query.id).then((data) => {
+            res.send(data);
+        });
+    }
 });
 
 app.post('/app/result', (req, res) => {

@@ -5,12 +5,12 @@ class ReportController {
         }
         if (editor.getValue() != "") {
             let size = this.sizeOf(editor);
-            alert(size);
+            $('.leftcol .time_val').text(size);
         }
         if (out.getValue() != "") {
             $('.rightcol .preview iframe').attr('srcdoc', editor2.getValue() + "<style>" + out.getValue() + "</style>");
             let size = this.sizeOf(out);
-            alert(size);
+            $('.rightcol .time_val').text(size);
         }
     }
 

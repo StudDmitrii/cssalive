@@ -25,37 +25,44 @@ export async function startRefactor(data, configComb, configNano) {
         data = await comb.processString(data);
     }
     catch (e) {
+        console.log('CSSCOMBerror');
         return "ERROR WHILE PROCCESSING CSSCOMB";
     }
-    data = await postcss([cssnano({
-        preset: [advencedPreset, configNano],
-        ...autoprefixer_enabler,
-    })]).process(data, { from: undefined }).then(res => res.css);
+    try {
+        data = await postcss([cssnano({
+            preset: [advencedPreset, configNano],
+            ...autoprefixer_enabler,
+        })]).process(data, { from: undefined }).then(res => res.css);
+    }
+    catch (e) {
+        console.log('CSSNANOerror');
+        return "ERROR WHILE PROCCESSING CSSCOMB";
+    }
     //console.log(data);
     return data;
 }
 
 
 
-export function saveFiles(fileTexts, userName, fileName = "style.css") {
+export async function saveFiles(fileTexts, userName, fileName = "style.css") {
     let path = './users/' + userName;
-    checkUserDir(path);
+    await checkUserDir(path);
     path += '/' + new Date().getTime();
-    checkDateDir(path);
+    await checkDateDir(path);
     path += '/';
-    fileTexts.forEach((fileText, i) => { createFile(i, fileName, fileText, path, userName); });
+    await fileTexts.forEach((fileText, i) => { createFile(i, fileName, fileText, path, userName); });
     return "success";
 }
 
-function checkUserDir(path) {
-    fs.stat(path, (err) => {
+async function checkUserDir(path) {
+    await fs.stat(path, (err) => {
         if (!err) return;
         fs.mkdirSync(path);
     });
 }
 
-function checkDateDir(path) {
-    fs.stat(path, (err) => {
+async function checkDateDir(path) {
+    await fs.stat(path, (err) => {
         if (!err) return;
         fs.mkdirSync(path);
     });
@@ -64,7 +71,7 @@ function checkDateDir(path) {
 let pathOld;
 let pathNew;
 
-function createFile(id, fileName, content, path, userName) {
+async function createFile(id, fileName, content, path, userName) {
 
     if (id == 1) {
         path += 'index.html';
@@ -80,7 +87,7 @@ function createFile(id, fileName, content, path, userName) {
         pathOld = pathOld.toString().replace('./users/' + userName, '');
     }
 
-    fs.stat(path, (err) => {
+    await fs.stat(path, (err) => {
         if (!err) return;
         fs.writeFileSync(path, content);
         if (id == 2)

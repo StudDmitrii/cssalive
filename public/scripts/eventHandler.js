@@ -171,6 +171,7 @@ $('.move_out').on('click', () => {
     $('.css').click();
     editor.setValue(out.getValue());
     out.setValue("");
+    console.log("sss");
 }); //move right to left
 
 
@@ -220,7 +221,8 @@ let files_is_open = false;
 $('.files').on('click', () => {
     if (files_is_open) return;
     StyleController.openFiles();
-    files_is_open = true;
+    DataSender.getFiles();
+    setTimeout(() => files_is_open = true, 100);
 });
 
 $('.control_line').on('click', () => {
@@ -228,3 +230,8 @@ $('.control_line').on('click', () => {
     StyleController.closeFiles();
     files_is_open = false;
 });
+
+function load_file_click(elem) {
+    let id = elem.getAttribute('data-id');
+    DataSender.loadFile(id);
+}

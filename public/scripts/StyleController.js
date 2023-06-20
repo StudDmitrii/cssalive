@@ -6,10 +6,12 @@ class StyleController {
 
     static openFiles() {
         $('.files_form').css('visibility', 'visible');
+        $('.cssalive_grid').css('filter', 'blur(3px)');
     }
 
     static closeFiles() {
         $('.files_form').css('visibility', 'hidden');
+        $('.cssalive_grid').css('filter', 'unset');
     }
 
     static openMenu() {
